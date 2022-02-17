@@ -32,16 +32,16 @@ function BuildMainNaviBar(myPage) {
   
 };
 function BuildSubNaviBar(myMainPage,mySubPage) {
-    var mySubMenu
+    var mySubMenuItems
     switch (myMainPage){
         case "Excel":
-                mySubMenu = [
+                mySubMenuItems = [
                     ["xlHome","excel.html","Excel Home"],
                     [ "xlPowerPivot","xlpowerpivot.html","Power Pivot"]
                     ];
                 break;
         case "Food":
-                mySubMenu = [
+                mySubMenuItems = [
                     ["fmHome","food.html","Food Home"],
                     [ "fmIngredients","ingredients.html","Ingredients"],
                     ["fmfoodtips", "foodtips.html","Tips"]
@@ -56,48 +56,15 @@ function BuildSubNaviBar(myMainPage,mySubPage) {
     
     //Build Left Side
     bar += '<div class="subnav-left-side">';
-        for (var i = 0; i < submenus.length; i++) {
-               mySubMenu= '<div id="'+submenus[i][0]+'" class="subnav-link-wrapper"><a href="'+submenus[i][1]+'">'+submenus[i][2]+'</a></div>';
-                bar += mySubMenu;
+        for (var i = 0; i < mySubMenuItems.length; i++) {
+               mySubMenuExt= '<div id="'+mySubMenuItems[i][0]+'" class="subnav-link-wrapper"><a href="'+mySubMenuItems[i][1]+'">'+mySubMenuItems[i][2]+'</a></div>';
+                bar += mySubMenuExt;
             }
     bar += '</div>';//Close Left
-
     bar += '</div>';//Close Wrapper
-
     $("#sub-bar").html(bar);
  
-
     //Add Active page marker
     document.getElementById(mySubPage).className +="active-subnav-link";
   
-};
-function BuildExcelNaviBar(mySubPage) {
-
-    var mySubMenu;
-   /* "ingredients": { id: "fmIngredients", page: "ingredients.html",display:"Ingredients" }*/
-            var submenus = [
-                ["fmHome","food.html","Food Home"],
-                [ "fmIngredients","ingredients.html","Ingredients"],
-               ["fmfoodtips", "foodtips.html","Tips"]
-                ];
-    let bar = '';
-    //Open Navigation
-    bar += '<div class="subnav-wrapper">';
-    
-    //Build Left Side
-    bar += '<div class="subnav-left-side">';
-        for (var i = 0; i < submenus.length; i++) {
-               mySubMenu= '<div id="'+submenus[i][0]+'" class="subnav-link-wrapper"><a href="'+submenus[i][1]+'">'+submenus[i][2]+'</a></div>';
-                bar += mySubMenu;
-            }
-    bar += '</div>';//Close Left
-
-    bar += '</div>';//Close Wrapper
-
-    $("#sub-bar").html(bar);
- 
-
-    //Add Active page marker
-    document.getElementById(mySubPage).className +="active-subnav-link";
-  
-};
+}
