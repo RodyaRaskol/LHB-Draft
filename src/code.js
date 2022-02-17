@@ -6,7 +6,7 @@ function BuildMainNaviBar(myPage) {
     //Build Left Side
     bar += '<div class="nav-left-side">';
         bar += '<div id="jsNaviBar_index" class="nav-link-wrapper"><a href="index.html">Home</a></div>';
-        bar += '<div id="jsNaviBar_work" class="nav-link-wrapper"><a href="work.html">Excel</a></div>';
+        bar += '<div id="jsNaviBar_excel" class="nav-link-wrapper"><a href="excel.html">Excel</a></div>';
         bar += '<div id="jsNaviBar_work" class="nav-link-wrapper"><a href="work.html">Work</a></div>';
         bar += '<div id="jsNaviBar_knowledge" class="nav-link-wrapper"><a href="knowledge.html">Knowledge</a></div>';
         //bar += '<div id="jsNaviBar_food" class="nav-link-wrapper"><a href="food.html">Food</a></div>';
@@ -31,16 +31,25 @@ function BuildMainNaviBar(myPage) {
     document.getElementById(myPage).className +="active-nav-link";
   
 };
-function BuildSubNaviBar(mySubPage) {
+function BuildSubNaviBar(myMainPage,mySubPage) {
+    var mySubMenu
+    switch (myMainPage){
+        case "Excel":
+                mySubMenu = [
+                    ["xlHome","excel.html","Excel Home"],
+                    [ "xlPowerPivot","xlpowerpivot.html","Power Pivot"]
+                    ];
+                break;
+        case "Food":
+                mySubMenu = [
+                    ["fmHome","food.html","Food Home"],
+                    [ "fmIngredients","ingredients.html","Ingredients"],
+                    ["fmfoodtips", "foodtips.html","Tips"]
+                    ];
+                break;
+        default:
+        }
 
-    var mySubMenu;
-   /* "ingredients": { id: "fmIngredients", page: "ingredients.html",display:"Ingredients" }*/
-            var FoodSubs = [
-                ["fmHome","food.html","Food Home"],
-                [ "fmIngredients","ingredients.html","Ingredients"],
-               ["fmfoodtips", "foodtips.html","Tips"]
-                ];
-    mySubMenu=FoodSubs
     let bar = '';
     //Open Navigation
     bar += '<div class="subnav-wrapper">';
