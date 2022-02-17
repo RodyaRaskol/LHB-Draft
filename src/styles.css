@@ -1,21 +1,176 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
+/*Master Styles*/
+body{
+  font-family: "Lato",sans-serif;
+  margin:0px;
+}
+.container{
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr;
+
+}
+/*Navigator Bar Styles */
+.nav-wrapper{
+  display:flex;
+  justify-content: space-between;
+  padding: 38px;
+  padding-bottom: 10px;
+}
+.subnav-wrapper{
+  display:flex;
+  justify-content:space-between;
+  padding: 5px;
+  padding-left: 50px;
+
+}
+.nav-left-side{
+  display: flex;
+}
+.subnav-left-side{
+  display: flex;
+}
+.nav-wrapper>.nav-left-side>div{
+  margin-right: 20px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.subnav-wrapper>.subnav-left-side>div{
+  margin-right: 20px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.nav-link-wrapper{
+  height: 22px;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.5s;
+}
+.subnav-link-wrapper{
+  height: 22px;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.5s;
+}
+.nav-link-wrapper a{
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.subnav-link-wrapper a{
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.nav-link-wrapper:hover{
+  border-bottom: 1px solid black;
+}
+.nav-link-wrapper a:hover{
+  color: black;
+}
+.nav-wrapper>.nav-right-side>div{
+  text-transform: uppercase;
+}
+.active-nav-link{
+  border-bottom: 1px solid black;
+}
+.active-nav-link a{
+ color: black !important;
 }
 
-html, body {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  background-color: #fff;
-}
+/* Sub Navigator Bar Styles*/
 
-main {
-  margin: auto;
-  width: 50%;
-  padding: 20px;
+.subnav-link-wrapper:hover{
+  border-bottom: 1px solid black;
 }
-
-main > h1 {
+.subnav-link-wrapper a:hover{
+  color: black;
+}
+.subnav-wrapper>.nav-right-side>div{
+  text-transform: uppercase;
+}
+.active-subnav-link{
+  border-bottom: 1px solid black;
+}
+.active-subnav-link a{
+ color: black !important;
+}
+/* Portfolio Items Style*/
+.portfolio-items-wrapper{
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+ 
+}
+.portfolio-item-wrapper{
+  position: relative;
+}
+.portfolio-img-background{
+  height:500px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+.img-text-wrapper{
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   text-align: center;
-  font-size: 3.5em;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.logo-wrapper img{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.img-text-wrapper .subtitle{
+  transition: 1s;
+  font-weight: 600;
+  color:transparent;
+}
+.img-text-wrapper:hover .subtitle{
+  font-weight: 600;
+  color: lightseagreen;
+  font-size: medium;
+}
+.img-darken{
+  transition: 1s;
+  filter: brightness(10%);
+}
+
+/* About Page styles */
+.two-column-wrapper{
+ 
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: -ms-grid-columns;
+  grid-template-columns: .618fr 1fr;
+}
+.profile-image-wrapper img{
+  
+  align-items: center;
+  width:auto;
+  height: 1000px;
+}
+.profile-content-wrapper{
+  padding: 30px;
+  
+}
+.profile-content-wrapper h1{
+  color: lightseagreen;
+}
+
+/* FAO BI*/
+iframe {
+  box-sizing: border-box;   /* make the border size be included in the height */
+  display: block;           /* make them block to fix white space margin */
+  position:relative;
+  align-content: center;
+  align-self: center;
+
+  width:100%;
+  height:900px;
 }
