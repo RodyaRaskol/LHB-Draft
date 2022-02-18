@@ -1,3 +1,4 @@
+
 function BuildMainNaviBar(myPage) {
     var bar = '';
     //Open Navigation
@@ -38,7 +39,7 @@ function BuildSubNaviBar(myMainPage,mySubPage) {
                 mySubMenuItems = [
                     ["xlHome","xlhome.html","Excel Home"],
                     ["xlTechniques","xltechniques.html","Techniques"],
-                    ["xlHowTo","xlhowto.html","How to ..."],
+                    ["xlhowto","xlhowto.html","How to ..."],
                     ["xlEpics","xlepics.html","Epics"],
                     ["xlPowerPivot","xlpowerpivot.html","Power Pivot"]
                                  ];
@@ -66,16 +67,10 @@ function BuildSubNaviBar(myMainPage,mySubPage) {
     bar += '</div>';//Close Left
     bar += '</div>';//Close Wrapper
     $("#sub-bar").html(bar);
-    console.log(bar);
+    
  
     //Add Active page marker
     document.getElementById(mySubPage).className +="active-subnav-link";
   
 }
-function ProcedureCall () { 
-    let message='';
-    message +="Select a Cell in the Range you wish to create the Table then: \n"
-    message +="Win: CTRL + T\n"
-    message +="Web: CTRL + L\n"
-    message +="Mac: COMMAND + T"
-    alert(message); }
+

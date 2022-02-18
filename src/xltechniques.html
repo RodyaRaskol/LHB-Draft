@@ -7,8 +7,10 @@
     <title>Excel Techniques</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="code.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+    <script type="text/javascript" src="xltechs.js"></script>
+   
 </head>
 <body>
     <div class="container">
@@ -22,22 +24,24 @@
         <div class="xltechs-content-wrapper">
             <div class="xltechs-Techniques-list">
                 <h2>Techniques</h2>
+               <div id="TechniBtnContainer" class="xltechs-techniques-wrapper">
+                    <button class="xltech-techniques-button" id="NumberSeries" onclick='NumberSeries()'>Number Series</button><br/>
+                    <button class="xltech-techniques-button" id="BasicValidation" onclick='BasicValidation()'>Basic Validation</button>
+                    <button class="xltech-techniques-button" id="DateProjection" onclick='DateProjection()'>Date Projection</button>
+               </div>
             </div>
             <div class="xltech-tech-IngredientsandFormulas">
                 <div>
                     <h2>Ingredients</h2>
                     <div class="xltech-ingredients-wrapper">
-                        <div><h3>Functions</h3>
-                            <div class="xltech-ingredient-wrapper">
-                                <a href="https://support.microsoft.com/en-us/office/if-function-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2" target="_blank">=IF()</a>                           
+                        <h3>Functions</h3>
+                            <div id ="XlFunctionsPH" class="xltech-ingredient-wrapper">
+                                <!--Filled by Javascript-->                       
                             </div>
-                        </div>
-                        <div><h3>Procedures</h3>
-                            <button class="xltech-procedure-button" onclick= "ProcedureCall ()" >Fill Series</button><br/>
-                            <button class="xltech-procedure-button"onclick= "ProcedureCall ()">Create Table</button>
-                  
-                            
-                        </div>
+                        <h3>Procedures</h3>
+                            <div id="xlProceduresPH" class="xltech-procedures-wrapper">
+                                <!--Filled by Javascript-->   
+                            </div>
                     </div>
                 </div>
                 <div>

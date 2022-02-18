@@ -12,7 +12,9 @@ body{
 h2{
   color:#8a8a8a;
 }
-h3{margin: 1px;}
+h3{margin: 1px;
+padding:5px;
+height: auto;}
 /*Navigator Bar Styles */
 .nav-wrapper{
   display:flex;
@@ -195,6 +197,8 @@ iframe {
 .xltech-ingredient-wrapper{
   margin: 1vh;
 }
+.xltech-procedures-wrapper{ 
+  margin: 1vh;}
 .xltech-ingredients-wrapper{
   display: -ms-grid;
   display: grid;
@@ -212,4 +216,27 @@ iframe {
   transition-duration: 0.4s;
   cursor: pointer;
   
+}
+.xltech-techniques-button{border: none;
+  color:#8a8a8a;
+  width:15vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 6px 6px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.xltech-techniques-button-clicked{
+  background-color: dodgerblue;
+  color: black;
+}
+.xlFunctions-Classic{
+
+}
+.xlFunctions-Spill{
+  background-color:gold;
+  color:black;
 }
