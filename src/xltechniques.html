@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Techniques</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="code.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+         <!--add this line to generate the nav bar with page name to identift current page-->
+         <div id="main-bar"></div>       
+         <script>BuildMainNaviBar("jsNaviBar_excel");</script>
+         <div id="sub-bar"> </div>          
+            <script>BuildSubNaviBar("Excel","xlTechniques");</script>
+        </div>
+
+        <div class="xltechs-content-wrapper">
+            <div class="xltechs-Techniques-list">
+                <h2>Techniques</h2>
+            </div>
+            <div class="xltech-tech-IngredientsandFormulas">
+                <div>
+                    <h2>Ingredients</h2>
+                    <div class="xltech-ingredients-wrapper">
+                        <div><h3>Functions</h3>
+                            <div class="xltech-ingredient-wrapper">
+                                <a href="https://support.microsoft.com/en-us/office/if-function-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2" target="_blank">=IF()</a>                           
+                            </div>
+                        </div>
+                        <div><h3>Procedures</h3>
+                            <button class="xltech-procedure-button" onclick= "ProcedureCall ()" >Fill Series</button><br/>
+                            <button class="xltech-procedure-button"onclick= "ProcedureCall ()">Create Table</button>
+                  
+                            
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Formulas</h2>
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+</body>
+
+</html>

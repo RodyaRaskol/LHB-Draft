@@ -9,6 +9,10 @@ body{
   grid-template-columns: 1fr;
 
 }
+h2{
+  color:#8a8a8a;
+}
+h3{margin: 1px;}
 /*Navigator Bar Styles */
 .nav-wrapper{
   display:flex;
@@ -152,8 +156,9 @@ body{
 .profile-image-wrapper img{
   
   align-items: center;
+  padding:20px;
   width:auto;
-  height: 1000px;
+  height: 800px;
 }
 .profile-content-wrapper{
   padding: 30px;
@@ -173,4 +178,38 @@ iframe {
 
   width:100%;
   height:900px;
+}
+/*Excel Techniques*/
+.xltechs-content-wrapper{
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: -ms-grid-columns;
+  grid-template-columns: .309fr .309fr 1fr;
+  padding: 10px;
+}
+.xltech-tech-IngredientsandFormulas{
+  display: -ms-grid;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.xltech-ingredient-wrapper{
+  margin: 1vh;
+}
+.xltech-ingredients-wrapper{
+  display: -ms-grid;
+  display: grid;
+  grid-template-rows: 1fr 1fr
+}
+.xltech-procedure-button{
+  border: none;
+  color:#8a8a8a;
+  width:8vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 4px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  
 }

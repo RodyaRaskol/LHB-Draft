@@ -6,7 +6,7 @@ function BuildMainNaviBar(myPage) {
     //Build Left Side
     bar += '<div class="nav-left-side">';
         bar += '<div id="jsNaviBar_index" class="nav-link-wrapper"><a href="index.html">Home</a></div>';
-        bar += '<div id="jsNaviBar_excel" class="nav-link-wrapper"><a href="excel.html">Excel</a></div>';
+        bar += '<div id="jsNaviBar_excel" class="nav-link-wrapper"><a href="xlhome.html">Excel</a></div>';
         bar += '<div id="jsNaviBar_work" class="nav-link-wrapper"><a href="work.html">Work</a></div>';
         bar += '<div id="jsNaviBar_knowledge" class="nav-link-wrapper"><a href="knowledge.html">Knowledge</a></div>';
         //bar += '<div id="jsNaviBar_food" class="nav-link-wrapper"><a href="food.html">Food</a></div>';
@@ -32,13 +32,16 @@ function BuildMainNaviBar(myPage) {
   
 };
 function BuildSubNaviBar(myMainPage,mySubPage) {
-    var mySubMenuItems
+    var mySubMenuItems;
     switch (myMainPage){
         case "Excel":
                 mySubMenuItems = [
-                    ["xlHome","excel.html","Excel Home"],
-                    [ "xlPowerPivot","xlpowerpivot.html","Power Pivot"]
-                    ];
+                    ["xlHome","xlhome.html","Excel Home"],
+                    ["xlTechniques","xltechniques.html","Techniques"],
+                    ["xlHowTo","xlhowto.html","How to ..."],
+                    ["xlEpics","xlepics.html","Epics"],
+                    ["xlPowerPivot","xlpowerpivot.html","Power Pivot"]
+                                 ];
                 break;
         case "Food":
                 mySubMenuItems = [
@@ -49,7 +52,7 @@ function BuildSubNaviBar(myMainPage,mySubPage) {
                 break;
         default:
         }
-
+    
     let bar = '';
     //Open Navigation
     bar += '<div class="subnav-wrapper">';
@@ -58,13 +61,21 @@ function BuildSubNaviBar(myMainPage,mySubPage) {
     bar += '<div class="subnav-left-side">';
         for (var i = 0; i < mySubMenuItems.length; i++) {
                mySubMenuExt= '<div id="'+mySubMenuItems[i][0]+'" class="subnav-link-wrapper"><a href="'+mySubMenuItems[i][1]+'">'+mySubMenuItems[i][2]+'</a></div>';
-                bar += mySubMenuExt;
+               bar += mySubMenuExt;
             }
     bar += '</div>';//Close Left
     bar += '</div>';//Close Wrapper
     $("#sub-bar").html(bar);
+    console.log(bar);
  
     //Add Active page marker
     document.getElementById(mySubPage).className +="active-subnav-link";
   
 }
+function ProcedureCall () { 
+    let message='';
+    message +="Select a Cell in the Range you wish to create the Table then: \n"
+    message +="Win: CTRL + T\n"
+    message +="Web: CTRL + L\n"
+    message +="Mac: COMMAND + T"
+    alert(message); }
