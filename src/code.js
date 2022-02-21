@@ -13,7 +13,9 @@ function BuildMainNaviBar(myPage) {
         //bar += '<div id="jsNaviBar_food" class="nav-link-wrapper"><a href="food.html">Food</a></div>';
        // bar += '<div id="jsNaviBar_play"class="nav-link-wrapper"><a href="play.html">Play</a></div>';
         bar += '<div id="jsNaviBar_stalls"class="nav-link-wrapper"><a href="stalls.html">Stalls</a></div>';
+        bar += '<div id="jsNaviBar_test" class="nav-link-wrapper"><a href="test.html">Test</a></div>';
         bar += '<div id="jsNaviBar_about" class="nav-link-wrapper"><a href="about.html">About</a></div>';
+        
     bar += '</div>';//Close Left
 
     //Build Right
@@ -40,8 +42,10 @@ function BuildSubNaviBar(myMainPage,mySubPage) {
                     ["xlHome","xlhome.html","Excel Home"],
                     ["xlTechniques","xltechniques.html","Techniques"],
                     ["xlhowto","xlhowto.html","How to ..."],
+                    ["xlwhydid","xlwhydid.html","Why did ..."],
+                    ["xlPowerPivot","xlpowerpivot.html","Power Pivot"],
                     ["xlEpics","xlepics.html","Epics"],
-                    ["xlPowerPivot","xlpowerpivot.html","Power Pivot"]
+                    ["xlToolShed","xltoolshed.html","Tool Shed"]                   
                                  ];
                 break;
         case "Food":

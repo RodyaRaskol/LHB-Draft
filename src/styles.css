@@ -189,6 +189,12 @@ iframe {
   grid-template-columns: .309fr .309fr 1fr;
   padding: 10px;
 }
+@media screen and (max-width: 400px) {
+  .xltechs-content-wrapper {
+    width: 100%;
+     /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
 .xltech-tech-IngredientsandFormulas{
   display: -ms-grid;
   display: grid;
@@ -207,10 +213,10 @@ iframe {
 .xltech-procedure-button{
   border: none;
   color:#8a8a8a;
-  width:8vw;
+  width:auto;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display:flex;
   font-size: 16px;
   margin: 4px 4px;
   transition-duration: 0.4s;
@@ -219,10 +225,10 @@ iframe {
 }
 .xltech-techniques-button{border: none;
   color:#8a8a8a;
-  width:15vw;
+  width:95%;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display:inline-block;
   font-size: 20px;
   margin: 6px 6px;
   transition-duration: 0.4s;
@@ -234,9 +240,9 @@ iframe {
   color: black;
 }
 .xlFunctions-Classic{
-
+  text-decoration: none;
 }
 .xlFunctions-Spill{
-  background-color:gold;
+  text-decoration: none;
   color:black;
 }

@@ -7,6 +7,7 @@
     <title>Excel Techniques</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="code.js"></script>
     <script type="text/javascript" src="xltechs.js"></script>
@@ -16,42 +17,46 @@
     <div class="container">
          <!--add this line to generate the nav bar with page name to identift current page-->
          <div id="main-bar"></div>       
-         <script>BuildMainNaviBar("jsNaviBar_excel");</script>
+            <script>BuildMainNaviBar("jsNaviBar_excel");</script>
          <div id="sub-bar"> </div>          
             <script>BuildSubNaviBar("Excel","xlTechniques");</script>
-        </div>
 
-        <div class="xltechs-content-wrapper">
-            <div class="xltechs-Techniques-list">
+        <div class="w3-third" id ="Tech_Ingredient Wrapper">
+            <div class="w3-third" id="Techniques">
                 <h2>Techniques</h2>
-               <div id="TechniBtnContainer" class="xltechs-techniques-wrapper">
-                    <button class="xltech-techniques-button" id="NumberSeries" onclick='NumberSeries()'>Number Series</button><br/>
-                    <button class="xltech-techniques-button" id="BasicValidation" onclick='BasicValidation()'>Basic Validation</button>
-                    <button class="xltech-techniques-button" id="DateProjection" onclick='DateProjection()'>Date Projection</button>
+                <div id="TechniBtnContainer" class="xltechs-techniques-wrapper">
+                    <button class="xltech-techniques-button" id="NumberSeries" onclick='NumberSeries()' title="How to list a series of numbers">Number Series</button><br/>
+                    <button class="xltech-techniques-button" id="BasicValidation" onclick='BasicValidation()' title="Limit the value that can be entered into a cell">Basic Validation</button>
+                    <button class="xltech-techniques-button" id="DateProjection" onclick='DateProjection()'title="Forecast a list of dates">Date Projection</button>
                </div>
+
             </div>
-            <div class="xltech-tech-IngredientsandFormulas">
-                <div>
-                    <h2>Ingredients</h2>
-                    <div class="xltech-ingredients-wrapper">
-                        <h3>Functions</h3>
-                            <div id ="XlFunctionsPH" class="xltech-ingredient-wrapper">
-                                <!--Filled by Javascript-->                       
-                            </div>
-                        <h3>Procedures</h3>
-                            <div id="xlProceduresPH" class="xltech-procedures-wrapper">
-                                <!--Filled by Javascript-->   
-                            </div>
+            <div class="w3-twothird">
+                <h2>Ingredients</h2>
+                <h3>Functions</h3>
+                    <div id ="XlFunctionsPH" class="xltech-ingredient-wrapper" title="The Excel functions used">
+                        <!--Filled by Javascript-->                       
                     </div>
-                </div>
-                <div>
-                    <h2>Formulas</h2>
-                </div>
+                <h3>Procedures</h3>
+                    <div id="xlProceduresPH" class="xltech-ingredient-wrapper" title="The Excel Procedures used">
+                            <!--Filled by Javascript-->   
+                    </div>
+                <h3>Techniques</h3>
+                    <div id="xlTechniquesPH" class="xltech-ingredient-wrapper"title="Techniques required">
+                            <!--Filled by Javascript-->   
+                    </div>
             </div>
             
+        </div>
 
+        <div class="w3-twothird">
 
         </div>
+
+
+
+
+        
     </div>
 </body>
 
