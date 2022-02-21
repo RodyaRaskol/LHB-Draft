@@ -14,19 +14,22 @@ const xlProcedures={1:
             "Message":"Select a Cell in the Range you wish to create the Table then:",
             "WinTip":"CTRL + T",
             "WebTip":"CTRL + L",
-            "MacTip":"COMMAND + T"},
+            "MacTip":"COMMAND + T",
+            "Note":"None."},
             2:{"name":"Fill-Series",
             "idx":2,
             "Message":"To Create a Number Series:",
             "WinTip":"Home>Editing>Fill>Series",
-            "WebTip":"TBA",
-            "MacTip":"TBA"},
+            "WebTip":"Not Available on Web",
+            "MacTip":"Home>Editing>Fill>Series",
+            "Note":"None."},
             3:{"name":"Name-Manager",
             "idx":3,
             "Message":"To display name manager:",
             "WinTip":"CTRL + F3",
-            "WebTip":"TBA",
-            "MacTip":"COMMAND + SHIFT + F3"}
+            "WebTip":"Not Available on Web",
+            "MacTip":"COMMAND + SHIFT + F3",
+            "Note":"An alternate method is to use the Name box (to the left of the formula bar), but you need to hit enter after typing the name and if the name already exists in the workbook, Excel moves to the named range."}
         };
 const xlFunctions={
             1:{"name":"=IF()",
@@ -61,10 +64,11 @@ function ProcedureCall (idxProcedure) {
     message +=myProcedure.Message +"\n"
     message +="Win: "+myProcedure.WinTip +"\n"
     message +="Web: "+myProcedure.WebTip +"\n"
-    message +="Mac: "+myProcedure.MacTip
+    message +="Mac: "+myProcedure.MacTip +"\n"
+    message +="Notes: "+myProcedure.Note
     alert(message); }
 
-    function deleteChild_Procedures() {
+function deleteChild_Procedures() {
         const myNode = document.getElementById(xlProceduresContainer);
         while (myNode.firstChild) {
           myNode.removeChild(myNode.lastChild);
