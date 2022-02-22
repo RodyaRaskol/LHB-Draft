@@ -38,7 +38,7 @@ const xlTechniques=[
     Action:"",
     muType:muBtn,
     fncs:[idxFncIF,idxFncSEQUENCE],
-    pros:[idxProFillSeries],
+    pros:[idxProFillSeries,idxProCreateTable],
     tecs:[],
     VideoName:"28 Numbers Later",
     methods:[{acLevel:1,methName:"Veteran",videoSRC:"videos/SC01.mp4"},
@@ -115,7 +115,10 @@ const xlFunctions=[
     {id: idxFncIF,
         name:"=IF()",
         link:"https://support.microsoft.com/en-us/office/if-function-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2",
-        fnClass:"xlFunctions-Classic"},
+        fnClass:"xlFunctions-Classic",
+        desc:'=IF(), preforms a logical test and then returns a value if TRUE and a value if FALSE.'
+        +' IF() can be chained together so that the values returned can also be a result of an IF() formula.'
+    },
 
     {id:idxFncSEQUENCE,
         name:"=SEQUENCE()",

@@ -61,6 +61,7 @@ function CreateFunctionLink(idx){
     myA.href=myFunction[0].link;
     myA.innerHTML=myFunction[0].name;
     myA.target="_blank";
+    myA.title=myFunction[0].desc
     myA.classList.add(myFunction[0].fnClass);
     myDiv.appendChild(myA);
     myContainer.appendChild(myDiv);
