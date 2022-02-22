@@ -1,141 +1,187 @@
-const idxCreateTable=1;
-const idxSeriesList=2;
-const idxNameManager=3;
-const idxFncIF=1
-const idxFncSEQUENCE=2
-const idxFncEOMONTH=3
-const idxFncEDATE=4
 const styleProcedureButtons="xltech-procedure-button";
 const xlProceduresContainer="xlProceduresPH";
-const xlFunctionsContainer="XlFunctionsPH"
-const xlProcedures={1:
-            {"name":"Create-Table",
-            "idx":1,
-            "Message":"Select a Cell in the Range you wish to create the Table then:",
-            "WinTip":"CTRL + T",
-            "WebTip":"CTRL + L",
-            "MacTip":"COMMAND + T",
-            "Note":"None."},
-            2:{"name":"Fill-Series",
-            "idx":2,
-            "Message":"To Create a Number Series:",
-            "WinTip":"Home>Editing>Fill>Series",
-            "WebTip":"Not Available on Web",
-            "MacTip":"Home>Editing>Fill>Series",
-            "Note":"None."},
-            3:{"name":"Name-Manager",
-            "idx":3,
-            "Message":"To display name manager:",
-            "WinTip":"CTRL + F3",
-            "WebTip":"Not Available on Web",
-            "MacTip":"COMMAND + SHIFT + F3",
-            "Note":"An alternate method is to use the Name box (to the left of the formula bar), but you need to hit enter after typing the name and if the name already exists in the workbook, Excel moves to the named range."}
-        };
-const xlFunctions={
-            1:{"name":"=IF()",
-            "link":"https://support.microsoft.com/en-us/office/if-function-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2",
-            "fnClass":"xlFunctions-Classic"},
-            2:{"name":"=SEQUENCE()",
-            "link":"https://support.microsoft.com/en-us/office/sequence-function-57467a98-57e0-4817-9f14-2eb78519ca90",
-            "fnClass":"xlFunctions-Spill"},
-            3:{"name":"=EOMONTH()",
-            "link":"https://support.microsoft.com/en-us/office/eomonth-function-7314ffa1-2bc9-4005-9d66-f49db127d628",
-            "fnClass":"xlFunctions-Classic"},
-            4:{"name":"=EDATE()",
-            "link":"https://support.microsoft.com/en-us/office/edate-function-3c920eb2-6e66-44e7-a1f5-753ae47ee4f5",
-            "fnClass":"xlFunctions-Classic"}}
+const xlFunctionsContainer="XlFunctionsPH";
+const xlTechniquesContainer="XlTechniquesPH";
+const prcdButtonClass="xltech-techniques-button";
+const xlMethodsContainer="video-bar";
 
 
-function HighlightTechClicked(myBtnID){
+
+          
+/*function HighlightTechClicked(myBtnID){
     var TechbtnContainer=document.getElementById("TechniBtnContainer");
-    var Techbtns=TechbtnContainer.getElementsByClassName("xltech-techniques-button");
+    var Techbtns=TechbtnContainer.getElementsByClassName("w3-sidebar>w3-bar-item");
     var myBtn=document.getElementById(myBtnID)    
 
     for (var i = 0; i < Techbtns.length; i++) {
         Techbtns[i].classList.remove("xltech-techniques-button-clicked");
          };
-    myBtn.classList.add("xltech-techniques-button-clicked");}
+    myBtn.classList.add("xltech-techniques-button-clicked");}*/
 
-$(document).ready(function(){})
+
 
 function ProcedureCall (idxProcedure) {   
-    let myProcedure=xlProcedures[idxProcedure]
+    let myProcedure=xlProcedures.filter(pro => pro.id==idxProcedure);
     let message='';
-    message +=myProcedure.Message +"\n"
-    message +="Win: "+myProcedure.WinTip +"\n"
-    message +="Web: "+myProcedure.WebTip +"\n"
-    message +="Mac: "+myProcedure.MacTip +"\n"
-    message +="Notes: "+myProcedure.Note
-    alert(message); }
+    message +=myProcedure[0].Message +"\n"
+    message +="Menu: "+myProcedure[0].Menu +"\n"
+    message +="Win: "+myProcedure[0].WinTip +"\n"
+    message +="Web: "+myProcedure[0].WebTip +"\n"
+    message +="Mac: "+myProcedure[0].MacTip +"\n"
+    message +="Notes: "+myProcedure[0].Note;
+    alert(message); 
+    }//Close Procedure Call
 
 function deleteChild_Procedures() {
-        const myNode = document.getElementById(xlProceduresContainer);
-        while (myNode.firstChild) {
-          myNode.removeChild(myNode.lastChild);
+    const myNode = document.getElementById(xlProceduresContainer);
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
         }
-      }  
+    } //Close Delete Procedures 
 
 function deleteChild_Functions() {
-        const myNode = document.getElementById(xlFunctionsContainer);
-        while (myNode.firstChild) {
-          myNode.removeChild(myNode.lastChild);
+    const myNode = document.getElementById(xlFunctionsContainer);
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
         }
-      }  
+    }//Close Delete Functions
 
-function CreateProcedureButton(Container,Innertxt,idtxt,myFunction,myClass){
-        let myContainer=document.getElementById(Container);
-        myContainer.innerHTML+='<button id="'+idtxt+'" onclick="'+myFunction+'" class="'+myClass+'">'+Innertxt+'</button>';    
-    }
-    
+ function deleteChild_Methods() {
+        const myNode = document.getElementById(xlMethodsContainer);
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.lastChild);
+            }
+        }//Close Delete Functions 
+   
 function CreateFunctionLink(idx){
-        let myFunction=xlFunctions[idx];
-        let myContainer=document.getElementById(xlFunctionsContainer);
-        let myDiv=document.createElement('div')
-        let myA=document.createElement('a');
-        myA.href=myFunction.link;
-        myA.innerHTML=myFunction.name;
-        myA.target="_blank";
-        myA.classList.add(myFunction.fnClass);
-        myDiv.appendChild(myA);
-        myContainer.appendChild(myDiv);
-    }
+    let myFunction=xlFunctions.filter(fnc => fnc.id==idx);
+    let myContainer=document.getElementById(xlFunctionsContainer);
+    let myDiv=document.createElement('div')
+    let myA=document.createElement('a');
+    myA.href=myFunction[0].link;
+    myA.innerHTML=myFunction[0].name;
+    myA.target="_blank";
+    myA.classList.add(myFunction[0].fnClass);
+    myDiv.appendChild(myA);
+    myContainer.appendChild(myDiv);
+    }//Close List Functions
 
-function NumberSeries(){
-        HighlightTechClicked("NumberSeries");
-        deleteChild_Procedures();
-        deleteChild_Functions();
-        //Add Functions
-        CreateFunctionLink(idxFncIF);
-        CreateFunctionLink(idxFncSEQUENCE);
-        // Add Procedured
-        let btnID = "btnCrtTbl";
-        CreateProcedureButton(xlProceduresContainer,"Create Table",btnID,'ProcedureCall('+idxCreateTable+')','xltech-techniques-button');
-        btnID = "btnFillSeries";
-        CreateProcedureButton(xlProceduresContainer,"Fill Series",btnID,'ProcedureCall('+idxSeriesList+')','xltech-techniques-button');}
+function CreateProcedureLink(idx){
+    let myProcedure=xlProcedures.filter(pro =>pro.id==idx);
+    let myContainer=document.getElementById(xlProceduresContainer);
+    let myBtn=document.createElement('button');
+    myBtn.innerHTML=myProcedure[0].name;
+    myBtn.id='btn'+myProcedure[0].id;
+    myBtn.className="w3-button w3-grey";
+    myBtn.setAttribute("onclick", 'ProcedureCall("'+myProcedure[0].id+'");');
+    myContainer.appendChild(myBtn);
+    } //Close List Procedures
 
-function BasicValidation(){
-    HighlightTechClicked("BasicValidation");
+function CreateIngredientList(idTech){
+    let myTech=xlTechniques.filter(technique => technique.id==idTech);
+    console.log(myTech)
+    //Clear Existing
     deleteChild_Procedures();
     deleteChild_Functions();
-     //Add Functions
-     //None for Basic Validation
-    let btnID = "btnNameMgr";
-    CreateProcedureButton(xlProceduresContainer,"Name Manager",btnID,'ProcedureCall('+idxNameManager+')','xltech-techniques-button');
-}
+    deleteChild_Methods();
 
-function DateProjection(){
-    HighlightTechClicked("DateProjection");
-    deleteChild_Procedures();
-    deleteChild_Functions();
-    //Add Functions
-    CreateFunctionLink(idxFncEOMONTH);
-    CreateFunctionLink(idxFncEDATE);
-    // Add Procedures
-}
+    //Build Functions
+    for (var i = 0; i < myTech[0].fncs.length; i++) {
+        CreateFunctionLink(myTech[0].fncs[i])};
+    //Build Procedures
+    for (var i = 0; i < myTech[0].pros.length; i++) {
+        CreateProcedureLink(myTech[0].pros[i])};
+    //Build Video Bar
+    BuildVideoBar(idTech)
+    }//Close Create Ingredient list
+
+function BuildTechniquesBar(){    
+    let Parent=document.getElementById('tech-bar');    
+    // Build Level 1 Menus
+    let Lvl1=xlTechniques.filter(technique => technique.ParentID==idRootTechniques);  
+    for (var i = 0; i < Lvl1.length; i++) {
+        switch (Lvl1[i].muType){
+            case muBtn:
+                var menuLevel1=document.createElement("div");
+                    menuLevel1.className="w3-bar-item w3-button";
+                    menuLevel1.title=Lvl1[i].title;
+                    menuLevel1.id=Lvl1[i].id;
+                    menuLevel1.innerHTML=Lvl1[i].Name;
+                    var myFunction='CreateIngredientList("'+Lvl1[i].id+'")';
+                    menuLevel1.setAttribute("onclick", myFunction);
+                    Parent.appendChild(menuLevel1)
+                break;
+
+            case muDrop:
+                //Build Holder
+                let menuContainer=document.createElement("div");
+                    menuContainer.className="w3-dropdown-hover";
+                    Parent.appendChild(menuContainer);
+                var menuLevel1=document.createElement("button")
+                    menuLevel1.className="w3-button";
+                    menuLevel1.title=Lvl1[i].title;
+                    menuLevel1.id=Lvl1[i].id;
+                    menuLevel1.innerHTML=Lvl1[i].Name;
+                    menuContainer.appendChild(menuLevel1)
+;
+                let menuLevel2Container=document.createElement("div");
+                    menuLevel2Container.className="w3-dropdown-content w3-bar-block w3-card-4";
+                    menuLevel1.appendChild( menuLevel2Container);
+                let Lvl2Items=xlTechniques.filter(technique2 => technique2.ParentID==Lvl1[i].id);
+                    for (var j = 0; j < Lvl2Items.length; j++) {
+                        let Lvl2Item=document.createElement("div");
+                            Lvl2Item.className="w3-bar-item w3-button";
+                            Lvl2Item.title= Lvl2Items[j].title;
+                            Lvl2Item.id= Lvl2Items[j].id;
+                            Lvl2Item.innerHTML= Lvl2Items[j].Name;
+                            var myFunction='CreateIngredientList("'+Lvl2Items[j].id+'")';
+                            Lvl2Item.setAttribute("onclick", myFunction);
+                            menuLevel2Container.appendChild( Lvl2Item);}
+                    break;//Break Accordion
+                //Build Menus steping back
+                
+            default:
+                    break;                       
+           
+            }//Close Switch 
+        }//Close Loop   
+    }//Close Build Function
+
+function myExpAccFunc(idItem) {
+        var x = document.getElementById(idItem);
+        if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+                x.previousElementSibling.className += " w3-green";
+         } else { 
+                x.className = x.className.replace(" w3-show", "");
+                x.previousElementSibling.className = 
+                x.previousElementSibling.className.replace(" w3-green", "");
+                }
+    } //Close Accordion Extender
+
+function BuildVideoBar(idTech){
+    let myTech=xlTechniques.filter(technique => technique.id==idTech);
+    let Parent=document.getElementById(xlMethodsContainer);
+    let VideoTitle=document.getElementById('VideoTitlePH') 
+        VideoTitle.innerHTML=myTech[0].VideoName
 
 
+    for (var i = 0; i < myTech[0].methods.length; i++) {
+        var menuLevel1=document.createElement("div");
+            menuLevel1.className="w3-bar-item w3-button";
+            //menuLevel1.title=myTech[0].methods[i].methName;
+            menuLevel1.id="Method"+i;
+            menuLevel1.innerHTML=myTech[0].methods[i].methName;
+            var myFunction='SetVideoSource("'+myTech[0].methods[i].videoSRC+'")';
+            menuLevel1.setAttribute("onclick", myFunction);
+            Parent.appendChild(menuLevel1);
 
+        }//Closes For
 
+    }//Closes Video Bar Build
 
+function SetVideoSource(mySRC){
+    let myVideo=document.getElementById("tech-video");
+    myVideo.src=mySRC;
 
-
+}//Close SetVideoSource

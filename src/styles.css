@@ -7,14 +7,24 @@ body{
   display: -ms-grid;
   display: grid;
   grid-template-columns: 1fr;
+  
 
 }
+.mainmenuitems{
+  text-transform: uppercase;
+}
+.videotitle{
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  font-size:xx-large;
+}
+.inupper{text-transform: uppercase;}
 h2{
   color:#8a8a8a;
 }
-h3{margin: 1px;
-padding:5px;
-height: auto;}
+h3{margin: 3px;
+
+border-bottom: 1px;}
 /*Navigator Bar Styles */
 .nav-wrapper{
   display:flex;
@@ -75,7 +85,7 @@ height: auto;}
   text-transform: uppercase;
 }
 .active-nav-link{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid blue;
 }
 .active-nav-link a{
  color: black !important;
