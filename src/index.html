@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="code.js"></script>
-
-</head>
-<body>
-    <div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="code.js"></script>
+    
+    </head>
+    <body>
+        <div class="w3-container">
              <!--add this line to generate the nav bar with page name to identift current page-->
-             <div id="main-bar"></div>       
-             <script>BuildMainNaviBar("jsNaviBar_index");</script>
+             <div id="main-bar" class ="w3-bar"></div>       
+              <script>BuildLevel1Level2Menu(idxMnuHome);</script>
 
-        <div class="content-wrapper">
-            <div class="portfolio-items-wrapper">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img-background" style="background-image:url(images/jonathan-letniak-3Z2Yx0E1DXw-unsplash.jpg)"> </div>
-                    <div class="img-text-wrapper">
-                        <!--div class="logo-wrappper">
-                            <img src="images/jonathan-letniak-3Z2Yx0E1DXw-unsplash.jpg" alt="">
-                        </div-->
-                        <div class="subtitle">Image 1 Mountains</div>
+             <div class="w3-row-padding">
+                <div id="homepics" class="w3-col m3 l4">  
+                    <div class="portfolio-item-wrapper">
+                        <div class="portfolio-img-background" style="background-image:url(images/jonathan-letniak-3Z2Yx0E1DXw-unsplash.jpg)"> </div>
+                        <div class="img-text-wrapper">
+                            <div class="subtitle">Image 1 Mountains</div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img-background" style="background-image:url(images/swapnil-shetty-7tH1lvMzxs8-unsplash.jpg)"> </div>
-                    <div class="img-text-wrapper">
-                        <!--div class="logo-wrappper">
-                            <img src="images/swapnil-shetty-7tH1lvMzxs8-unsplash.jpg" alt="">
-                        </div-->
-                        <div class="subtitle">Image 2 Forests</div>
+                    <div class="portfolio-item-wrapper">
+                        <div class="portfolio-img-background" style="background-image:url(images/swapnil-shetty-7tH1lvMzxs8-unsplash.jpg)"> </div>
+                        <div class="img-text-wrapper">
+                            <div class="subtitle">Image 2 Forests</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 <script>
     const portfolioItems=document.querySelectorAll('.portfolio-item-wrapper')

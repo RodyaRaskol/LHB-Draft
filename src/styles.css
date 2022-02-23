@@ -120,8 +120,9 @@ border-bottom: 1px;}
 }
 .portfolio-img-background{
   height:500px;
-  width: 100%;
-  background-size: cover;
+  width: auto;
+  margin: 5px;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   
@@ -255,4 +256,8 @@ iframe {
 .xlFunctions-Spill{
   text-decoration: none;
   color:black;
+}
+.btnSection{
+  margin-top: 3px;
+  margin-bottom: 3px;
 }

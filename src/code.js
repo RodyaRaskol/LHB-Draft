@@ -1,105 +1,68 @@
 
-function BuildMainNaviBar(myPage) {
-    var bar = '';
-    //Open Navigation
-    bar += '<div class="nav-wrapper">';
-    
-    //Build Left Side
-    bar += '<div class="nav-left-side">';
-        bar += '<div id="jsNaviBar_index" class="nav-link-wrapper"><a href="index.html">Home</a></div>';
-        bar += '<div id="jsNaviBar_excel" class="nav-link-wrapper"><a href="xlhome.html">Excel</a></div>';
-        bar += '<div id="jsNaviBar_work" class="nav-link-wrapper"><a href="work.html">Work</a></div>';
-        bar += '<div id="jsNaviBar_knowledge" class="nav-link-wrapper"><a href="knowledge.html">Knowledge</a></div>';
-        //bar += '<div id="jsNaviBar_food" class="nav-link-wrapper"><a href="food.html">Food</a></div>';
-       // bar += '<div id="jsNaviBar_play"class="nav-link-wrapper"><a href="play.html">Play</a></div>';
-        bar += '<div id="jsNaviBar_stalls"class="nav-link-wrapper"><a href="stalls.html">Stalls</a></div>';
-        bar += '<div id="jsNaviBar_test" class="nav-link-wrapper"><a href="test.html">Test</a></div>';
-        bar += '<div id="jsNaviBar_about" class="nav-link-wrapper"><a href="about.html">About</a></div>';
-        
-    bar += '</div>';//Close Left
+const idxMnuExcel="excelmenu"
+const idxMnuHome="homemenu"
+const lhbMainMenu=[
+    {id:idxMnuHome,ref:"index.html",name:"Home",isShown:true,title:"Home Page"},
+    {id:idxMnuExcel,ref:"xlhome.html",name:"Excel",isShown:true,title:"Excel Home"},
+    {id:"jsNaviBar_work",ref:"work.html",name:"Work",isShown:false,title:"Work Home"},
+    {id:"jsNaviBar_knowledge",ref:"knowledge.html",name:"Knowledge",isShown:true,title:"Knowledge Home"},
+    {id:"jsNaviBar_food",ref:"food.html",name:"Food",isShown:false,title:"Food Home"},
+    {id:"jsNaviBar_play",ref:"play.html",name:"Play",isShown:false,title:"Play Home"},
+    {id:"jsNaviBar_stalls",ref:"stalls.html",name:"Stalls",isShown:true,title:"Stalls Home"},
+    {id:"jsNaviBar_test",ref:"test.html",name:"Test",isShown:false,title:"Test Page"},
+    {id:"jsNaviBar_about",ref:"about.html",name:"About",isShown:false,title:"About Us"},
+]
 
-    //Build Right
-    bar += '<div class="nav-right-side">';
-        bar +='<div class="brand">';
-            bar+='<div>Life Hacks Bazaar</div>';
-        bar += '</div>';
-    bar += '</div>';//Close Right
+const lhbSubMenus=[
+    {parent:idxMnuExcel,id:"xlHome",ref:"xlhome.html",name:"Excel Home",isShown:true,title:"Excel Home"},
+    {parent:idxMnuExcel,id:"xlTechniques",ref:"xltechniques.html",name:"Techniques",isShown:true,title:"Techniques"},
+    {parent:idxMnuExcel,id:"xlHowTo",ref:"xlhowto.html",name:"How to ...",isShown:false,title:"How to ..."},
+    {parent:idxMnuExcel,id:"xlWhyDid",ref:"xlwhydid.html",name:"Why did ...",isShown:false,title:"Why did ..."},
+    {parent:idxMnuExcel,id:"xlPowerPivot",ref:"xlpowerpivot.html",name:"Power Pivot",isShown:false,title:"Power Pivot"},
+    {parent:idxMnuExcel,id:"xlEpics",ref:"xlepics.html",name:"Epics",isShown:false,title:"Epics"},
+    {parent:idxMnuExcel,id:"xlToolShed",ref:"xltoolshed.html",name:"Tool Shed",isShown:true,title:"Tool Shed"},
+]
+function BuildLevel1Level2Menu(myPage){
+    const w3MainMenuStyle="w3-mobile w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black inupper"    
+    let Parent=document.getElementById('main-bar');    
+    // Build Level Menus
+    let Lvl1=lhbMainMenu.filter(menu => menu.isShown==true);   
+    for (var i = 0; i < Lvl1.length; i++) {
+                let Lvl2AllItems=lhbSubMenus.filter(submenu => submenu.parent==Lvl1[i].id);
+                let Lvl2Items=Lvl2AllItems.filter(submenu => submenu.isShown==true);
+                var menuLevel1=document.createElement("a");
+                menuLevel1.className=w3MainMenuStyle;
+                if (Lvl2Items.length > 0){
+                    menuLevel1.classList.add("w3-dropdown-hover")};
+                menuLevel1.title=Lvl1[i].title;
+                menuLevel1.id=Lvl1[i].id;
+                menuLevel1.innerHTML=Lvl1[i].name;
+                menuLevel1.href=Lvl1[i].ref
+                Parent.appendChild(menuLevel1)
+;
+                let menuLevel2Container=document.createElement("div");
+                    menuLevel2Container.className="w3-dropdown-content w3-bar-block w3-card-4";
+                    menuLevel1.appendChild( menuLevel2Container);
+                
+                    for (var j = 0; j < Lvl2Items.length; j++) {
+                        let Lvl2Item=document.createElement("a");
+                            Lvl2Item.className="w3-bar-item w3-button";
+                            Lvl2Item.title= Lvl2Items[j].title;
+                            Lvl2Item.id= Lvl2Items[j].id;
+                            Lvl2Item.innerHTML= Lvl2Items[j].name;
+                            Lvl2Item.href=Lvl2Items[j].ref;
+                            //var myFunction='CreateIngredientList("'+Lvl2Items[j].id+'")';
+                            //Lvl2Item.setAttribute("onclick", myFunction);
+                            menuLevel2Container.appendChild( Lvl2Item);} 
+        }//Close Loop
 
-    bar += '</div>';//Close Wrapper
-
-    $("#main-bar").html(bar);
-   // document.getElementById("main-bar").html(bar);
-
-    //Add Active page marker
-    document.getElementById(myPage).className +="active-nav-link";
-  
-};
-function BuildMainNaviBarW3(myPage) {
-
-    const w3MainMenu=' class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black mainmenuitems"'
-    var bar = '';
-    //Open Navigation
-    bar += '<div class="w3-bar">';
-    
-
-        bar += '<a href="index.html" id="idxIndex"'+w3MainMenu+'>Home</a>';
-        bar += '<a href="xlhome.html" id="idxExcel"'+w3MainMenu+'>Excel</a>';
-        bar += '<a href="work.html" id="idxWork"'+w3MainMenu+'>Work</a>';
-        bar += '<a href="knowledge.html" id="idxKnowledge"'+w3MainMenu+'>Knowledge</a>';
-        bar += '<a href="stalls.html" id="idxStalls"'+w3MainMenu+'>Stalls</a>';
-        bar += '<a href="test.html" id="idxTest"'+w3MainMenu+'>Test</a>';
-        bar += '<a href="about.html" id="idxAbout"'+w3MainMenu+'>About</a>';
-        bar +='<div class="w3-bar-item w3-right">Life Hacks Bazaar</div>';
-
-
-    bar += '</div>';//Close Wrapper
-
-    $("#main-bar").html(bar);
-
+    //Add Logo
+    var Logo1=document.createElement("div")
+        Logo1.className="w3-bar-item w3-right w3-hide-small inupper"
+        Logo1.innerHTML="Life Hacks Bazaar"
+        Parent.appendChild(Logo1)
+         
     //Add Active page marker
     var x =document.getElementById(myPage);
-    x.className=x.className.replace("w3-border-white","w3-border-green") ;
-
-  
-};
-function BuildSubNaviBar(myMainPage,mySubPage) {
-    const w3SubMenu='w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black mainmenuitems';
-    var mySubMenuItems;
-    let bar = '';
-    switch (myMainPage){
-        case "Excel":
-                mySubMenuItems = [
-                    ["xlHome","xlhome.html","Excel Home"],
-                    ["xlTechniques","xltechniques.html","Techniques"],
-                    ["xlhowto","xlhowto.html","How to ..."],
-                    ["xlwhydid","xlwhydid.html","Why did ..."],
-                    ["xlPowerPivot","xlpowerpivot.html","Power Pivot"],
-                    ["xlEpics","xlepics.html","Epics"],
-                    ["xlToolShed","xltoolshed.html","Tool Shed"]                   
-                    ];
-                break;
-        case "Food":
-                mySubMenuItems = [
-                    ["fmHome","food.html","Food Home"],
-                    ["fmIngredients","ingredients.html","Ingredients"],
-                    ["fmfoodtips", "foodtips.html","Tips"]
-                    ];
-                break;
-        default:
-        }
-    //Build Sub Bar
-    
-    bar += '<div class="w3-bar">';
-    for (var i = 0; i < mySubMenuItems.length; i++) {
-        mySubMenuExt= '<a href="'+mySubMenuItems[i][1]+'" id="'+mySubMenuItems[i][0]+'" class="'+w3SubMenu+'">'+mySubMenuItems[i][2]+'</a>';
-        bar += mySubMenuExt;
-        }  
-    bar += '</div>';//Close Wrapper
-    $("#sub-bar").html(bar);
- 
-    //Add Active page marker
-    var subMenu=document.getElementById(mySubPage);
-    subMenu.className=subMenu.className.replace("w3-border-white","w3-border-green") ;
-  
-}
-
+        x.className=x.className.replace("w3-border-white","w3-border-black") ;   
+    }//Close Build Function

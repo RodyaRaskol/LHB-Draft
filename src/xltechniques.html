@@ -18,43 +18,45 @@
     <script src="database.js"></script>   
 </head>
 <body>
-  <div class="w3-container">
-  <div id="main-bar"></div>       
-  <script>BuildMainNaviBarW3("idxExcel");</script>
-<div id="sub-bar"> </div>          
-  <script>BuildSubNaviBar("Excel","xlTechniques");</script>
-<div id="tech-bar" class="w3-bar"></div>
-  <script>BuildTechniquesBar();</script>
-    
+<div class="w3-container">
+  <div id="main-bar" class ="w3-container w3-bar"></div>       
+      <script>BuildLevel1Level2Menu(idxMnuExcel);</script>
+  <div class="w3-container w3-teal">
+        <h4>Techniques</h4>
+        <div id="tech-bar" class="w3-bar"></div>
+        <script>BuildTechniquesBar();</script></div>
+  
+  
+  <div class="w3-row-padding">
+    <div id="colIngredients" class="w3-col m2 l2">
+    <!--div class="w3-sidebar w3-bar-block"-->           
+      <h2>Ingredients</h2>
+        <a  title="Link to Microsoft Functions Site"
+            href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188">  
+        <h3>Functions</h3></a>
+          <div id ="XlFunctionsPH"  title="The Excel functions used">
+            <!--Filled by Javascript-->                       
+          </div>
+        <h3>Procedures</h3>
+          <div id="xlProceduresPH" class="w3-bar-block" title="How to access the Excel Procedures used">
+            <!--Filled by Javascript-->   
+          </div><!--Close Procedures-->
+        <h3>Techniques</h3>
+          <div id="xlTechniquesPH"  title="Techniques required">
+            <!--Filled by Javascript-->   
+          </div>
+    <!--/div--> <!--Close SideBar-->
+    </div><!--Close Ingredients-->
 
-          
-          <div class="w3-row-padding">
-            <div id="colIngredients" class="w3-col m2 l2">            
-            <h2>Ingredients</h2>
-                <a title="Link to Microsoft Functions Site"
-                  href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188">
-                  <h3>Functions</h3></a>
-                  <div id ="XlFunctionsPH" class="w3-bar-block" title="The Excel functions used">
-                  <!--Filled by Javascript-->                       
-                </div>
-              <h3>Procedures</h3>
-              <div id="xlProceduresPH" class="w3-bar-block" title="The Excel Procedures used">
-                <!--Filled by Javascript-->   
-              </div>
-              <h3>Techniques</h3>
-                <div id="xlTechniquesPH" class="w3-bar-block" title="Techniques required">
-                <!--Filled by Javascript-->   
-                </div>
-            </div>
-            <div id="colContents" class="w3-col m10 l10">
-              <h2 id="VideoTitlePH" class ="videotitle">Content</h2>
-              <div id="video-bar" class="w3-bar"></div>
-              <video width="100%" autoplay=-1 controls id="tech-video">
-                <source  src="videos/SC05.mp4" type="video/mp4">                        
-              Your browser does not support the video tag.
-              </video>
-            </div>           
-          </div><!--Close Rows-->
-        </div>   
+    <div id="colContents" class="w3-col m10 l10">
+      <h2 id="VideoTitlePH" class ="videotitle">Content</h2>
+      <div id="video-bar" class="w3-bar"></div>
+      <video width="100%" autoplay=-1 controls id="tech-video">
+        <source  src="" type="video/mp4">                        
+        Your browser does not support the video tag.
+      </video>
+    </div><!--Close Content-->           
+  </div><!--Close Rows-->
+</div><!--Close Body Contianer-->   
 </body>
 </html>

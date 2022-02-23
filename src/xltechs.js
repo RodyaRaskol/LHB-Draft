@@ -20,7 +20,7 @@ const xlMethodsContainer="video-bar";
 
 
 
-function ProcedureCall (idxProcedure) {   
+function ProcedureCall (idxProcedure,idCaller) {   
     let myProcedure=xlProcedures.filter(pro => pro.id==idxProcedure);
     let message='';
     message +=myProcedure[0].Message +"\n"
@@ -29,7 +29,10 @@ function ProcedureCall (idxProcedure) {
     message +="Web: "+myProcedure[0].WebTip +"\n"
     message +="Mac: "+myProcedure[0].MacTip +"\n"
     message +="Notes: "+myProcedure[0].Note;
-    alert(message); 
+    alert(message);
+    var x =document.getElementById(idCaller);
+    //x.className=x.className.replace("w3-border-white","w3-border-green") ;
+    x.className=x.className.replace("w3-button w3-green","w3-button w3-grey") ; 
     }//Close Procedure Call
 
 function deleteChild_Procedures() {
@@ -72,15 +75,15 @@ function CreateProcedureLink(idx){
     let myContainer=document.getElementById(xlProceduresContainer);
     let myBtn=document.createElement('button');
     myBtn.innerHTML=myProcedure[0].name;
-    myBtn.id='btn'+myProcedure[0].id;
-    myBtn.className="w3-button w3-grey";
-    myBtn.setAttribute("onclick", 'ProcedureCall("'+myProcedure[0].id+'");');
+    myBtn.id='prcdbtn'+myProcedure[0].id;
+    myBtn.className="w3-bar-item w3-button w3-green w3-round-large btnSection";
+    myBtn.setAttribute("onclick", 'ProcedureCall("'+myProcedure[0].id+'","'+myBtn.id+'");');
     myContainer.appendChild(myBtn);
     } //Close List Procedures
 
 function CreateIngredientList(idTech){
     let myTech=xlTechniques.filter(technique => technique.id==idTech);
-    console.log(myTech)
+
     //Clear Existing
     deleteChild_Procedures();
     deleteChild_Functions();
@@ -97,29 +100,31 @@ function CreateIngredientList(idTech){
     }//Close Create Ingredient list
 
 function BuildTechniquesBar(){    
-    let Parent=document.getElementById('tech-bar');    
+    let Parent=document.getElementById('tech-bar');
+
     // Build Level 1 Menus
+
     let Lvl1=xlTechniques.filter(technique => technique.ParentID==idRootTechniques);  
     for (var i = 0; i < Lvl1.length; i++) {
         switch (Lvl1[i].muType){
             case muBtn:
                 var menuLevel1=document.createElement("div");
-                    menuLevel1.className="w3-bar-item w3-button";
+                    menuLevel1.className="w3-mobile w3-bar-item w3-button";
                     menuLevel1.title=Lvl1[i].title;
                     menuLevel1.id=Lvl1[i].id;
                     menuLevel1.innerHTML=Lvl1[i].Name;
                     var myFunction='CreateIngredientList("'+Lvl1[i].id+'")';
                     menuLevel1.setAttribute("onclick", myFunction);
-                    Parent.appendChild(menuLevel1)
+                    Parent.append(menuLevel1)
                 break;
 
             case muDrop:
                 //Build Holder
                 let menuContainer=document.createElement("div");
-                    menuContainer.className="w3-dropdown-hover";
-                    Parent.appendChild(menuContainer);
+                    menuContainer.className="w3-mobile w3-dropdown-hover";
+                    Parent.append(menuContainer);
                 var menuLevel1=document.createElement("button")
-                    menuLevel1.className="w3-button";
+                    menuLevel1.className="w3-mobile w3-button";
                     menuLevel1.title=Lvl1[i].title;
                     menuLevel1.id=Lvl1[i].id;
                     menuLevel1.innerHTML=Lvl1[i].Name;
@@ -131,7 +136,7 @@ function BuildTechniquesBar(){
                 let Lvl2Items=xlTechniques.filter(technique2 => technique2.ParentID==Lvl1[i].id);
                     for (var j = 0; j < Lvl2Items.length; j++) {
                         let Lvl2Item=document.createElement("div");
-                            Lvl2Item.className="w3-bar-item w3-button";
+                            Lvl2Item.className="w3-bar-item w3-button w3-mobile";
                             Lvl2Item.title= Lvl2Items[j].title;
                             Lvl2Item.id= Lvl2Items[j].id;
                             Lvl2Item.innerHTML= Lvl2Items[j].Name;
@@ -169,20 +174,32 @@ function BuildVideoBar(idTech){
 
     for (var i = 0; i < myTech[0].methods.length; i++) {
         var menuLevel1=document.createElement("div");
-            menuLevel1.className="w3-bar-item w3-button";
+            menuLevel1.className="w3-bar-item w3-button w3-green w3-mobile w3-border w3-border-white";
             //menuLevel1.title=myTech[0].methods[i].methName;
             menuLevel1.id="Method"+i;
             menuLevel1.innerHTML=myTech[0].methods[i].methName;
-            var myFunction='SetVideoSource("'+myTech[0].methods[i].videoSRC+'")';
+            var myFunction='SetVideoSource("'+myTech[0].methods[i].videoSRC+'","Method'+i+'")';
             menuLevel1.setAttribute("onclick", myFunction);
             Parent.appendChild(menuLevel1);
 
         }//Closes For
+    //Set Source to First Method
+    let myVideo=document.getElementById("tech-video");
+        myVideo.autoplay = false;
+        myVideo.src=myTech[0].methods[0].videoSRC;
+        myVideo.load();
+    
 
     }//Closes Video Bar Build
 
-function SetVideoSource(mySRC){
+function SetVideoSource(mySRC,btnID){
+    var x =document.getElementById(btnID);
+    //x.className=x.className.replace("w3-border-white","w3-border-green") ;
+    x.className=x.className.replace("w3-button w3-green","w3-button w3-grey") ;
+
     let myVideo=document.getElementById("tech-video");
+    myVideo.autoplay = true;    
     myVideo.src=mySRC;
+    myVideo.load();
 
 }//Close SetVideoSource

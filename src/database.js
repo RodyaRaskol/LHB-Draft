@@ -123,27 +123,39 @@ const xlFunctions=[
     {id:idxFncSEQUENCE,
         name:"=SEQUENCE()",
         link:"https://support.microsoft.com/en-us/office/sequence-function-57467a98-57e0-4817-9f14-2eb78519ca90",
-        fnClass:"xlFunctions-Spill"},
+        fnClass:"xlFunctions-Spill",
+        desc: `=SEQUENCE() is one of the new "Spill Formulas".  It generates a series of numbers`
+    +` and outputs the results.  It can also be used within a function to generate a number series which is it's real power as`
+    +` previously this was achieved by using the =OFFSET() or =ROW() function.`},
 
     {id: idxFncEOMONTH,
         name:"=EOMONTH()",
         link:"https://support.microsoft.com/en-us/office/eomonth-function-7314ffa1-2bc9-4005-9d66-f49db127d628",
-        fnClass:"xlFunctions-Classic"},
+        fnClass:"xlFunctions-Classic",
+    desc:`=EOMONTH() gives the date at the end of the month the specified number of months before/after the reference date.`},
 
     {id:idxFncEDATE,
     name:"=EDATE()",
         link:"https://support.microsoft.com/en-us/office/edate-function-3c920eb2-6e66-44e7-a1f5-753ae47ee4f5",
-        fnClass:"xlFunctions-Classic"},
+        fnClass:"xlFunctions-Classic",
+    desc:`=EDATE() gives the same day of the month which is the specified number of months before/after the reference date.`
++` EDATE() has some issues dealing with the uneven length of months hence why it is best practice to use a count of months`
++` since the Baseline Date rather than incrementing by 1 month.`},
 
     {id:idxFncIndex,
         name:"=INDEX()",
         link:"https://support.microsoft.com/en-us/office/index-function-a5dcf0dd-996d-40a4-a822-b56b061328bd",
-        fnClass:"xlFunctions-Classic"},
+        fnClass:"xlFunctions-Classic",
+    desc:`=INDEX() is amongst the most versatile/powerful functions in Excel.`
++` In its most used form it looks within a set of numbers and returns the value which is in the indicated Row and Column.`
++` INDEX(), often combined with MATCH() together with SUM() and IF() are the power Triumvirate of Excel.`},
     
     {id:idxFncMatch,
         name:"=MATCH()",
         link:"https://support.microsoft.com/en-us/office/match-function-e8dffd45-c762-47d6-bf89-533f4a37673a",
-        fnClass:"xlFunctions-Classic"},
+        fnClass:"xlFunctions-Classic",
+    desc:`=MATCH() searches for a value and reports in what position, more properly termed the index number, within the searched area the value occurs.`
++` MATCH() is best used to find exact values but has the flexibility to find closest values, be aware at LHB we only use th exact method.`},
         
     {id:idxFncSumIfs,
         name:"=SUMIFS()",
