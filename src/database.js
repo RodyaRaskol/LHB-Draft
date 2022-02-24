@@ -1,3 +1,5 @@
+const { json } = require("stream/consumers");
+
 //Types of Technique Buttons
 const muBtn="MenuButton"
 const muDrop="MenuDrop"
@@ -28,6 +30,8 @@ const idxProFillSeries=2;
 const idxProNameManager=3;
 const idxProValidationManager=4;
 
+
+
 const xlTechniques=[
     {Name:"Number Series",
     id:idxtecNumberSeries,
@@ -37,6 +41,7 @@ const xlTechniques=[
     Updated:"2022-02-22",
     Action:"",
     muType:muBtn,
+    isShown:true,
     fncs:[idxFncIF,idxFncSEQUENCE],
     pros:[idxProFillSeries,idxProCreateTable],
     tecs:[],
@@ -56,6 +61,7 @@ const xlTechniques=[
    Updates:"2022-02-22",
    Action:"",
    muType: muDrop,
+   isShown:true,
    fncs:[],
    pros:[],
    tecs:[]},
@@ -68,6 +74,7 @@ const xlTechniques=[
    Updates:"2022-02-22",
    Action:"",
    muType:muBtn,
+   isShown:true,
    fncs:[],
    pros:[idxProNameManager,idxProValidationManager],
    tecs:[]},
@@ -80,6 +87,7 @@ const xlTechniques=[
    Updates:"2022-02-22",
    Action:"",
    muType:muBtn,
+   isShown:false,
    fncs:[idxFncOffset,idxFncMatch,idxFncCountIfs],
    pros:[idxProNameManager,idxProValidationManager,idxProCreateTable],
    tecs:[]},
@@ -92,6 +100,7 @@ const xlTechniques=[
    Updates:"2022-02-22",
    Action:"",
    muType: muDrop,
+   isShown:true,
    fncs:[],
    pros:[],
    tecs:[]},
@@ -104,6 +113,7 @@ const xlTechniques=[
    Updates:"2022-02-22",
    Action:"",
    muType:muBtn,
+   isShown:true,
    fncs:[idxFncEDATE,idxFncEOMONTH],
    pros:[],
    tecs:[idxtecNumberSeries]}

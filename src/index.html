@@ -8,15 +8,22 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="glocolors.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="code.js"></script>
+        <script src="glomenus.js"></script>
     
     </head>
     <body>
+        <nav id="nav-Main" class="w3-bar" >
+            <!--Filled by Script-->
+          </nav>
+          <nav id="nav-Mini" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium">
+            <!--Filled by Script-->
+          </nav>
+          <script>lhbBuildMenus("menuTest");</script>
         <div class="w3-container">
-             <!--add this line to generate the nav bar with page name to identift current page-->
-             <div id="main-bar" class ="w3-bar"></div>       
-              <script>BuildLevel1Level2Menu(idxMnuHome);</script>
+             
 
              <div class="w3-row-padding">
                 <div id="homepics" class="w3-col m3 l4">  

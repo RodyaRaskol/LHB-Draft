@@ -1,9 +1,9 @@
 
-const idxMnuExcel="excelmenu"
-const idxMnuHome="homemenu"
-const lhbMainMenu=[
-    {id:idxMnuHome,ref:"index.html",name:"Home",isShown:true,title:"Home Page"},
-    {id:idxMnuExcel,ref:"xlhome.html",name:"Excel",isShown:true,title:"Excel Home"},
+const oldidcMnuExcel="excelmenu"
+const oldidxMnuHome="homemenu"
+const lhbMainMenu_old=[
+    {id:oldidxMnuHome,ref:"index.html",name:"Home",isShown:true,title:"Home Page"},
+    {id:oldidcMnuExcel,ref:"xlhome.html",name:"Excel",isShown:true,title:"Excel Home"},
     {id:"jsNaviBar_work",ref:"work.html",name:"Work",isShown:false,title:"Work Home"},
     {id:"jsNaviBar_knowledge",ref:"knowledge.html",name:"Knowledge",isShown:true,title:"Knowledge Home"},
     {id:"jsNaviBar_food",ref:"food.html",name:"Food",isShown:false,title:"Food Home"},
@@ -13,24 +13,25 @@ const lhbMainMenu=[
     {id:"jsNaviBar_about",ref:"about.html",name:"About",isShown:false,title:"About Us"},
 ]
 
-const lhbSubMenus=[
-    {parent:idxMnuExcel,id:"xlHome",ref:"xlhome.html",name:"Excel Home",isShown:true,title:"Excel Home"},
-    {parent:idxMnuExcel,id:"xlTechniques",ref:"xltechniques.html",name:"Techniques",isShown:true,title:"Techniques"},
-    {parent:idxMnuExcel,id:"xlHowTo",ref:"xlhowto.html",name:"How to ...",isShown:false,title:"How to ..."},
-    {parent:idxMnuExcel,id:"xlWhyDid",ref:"xlwhydid.html",name:"Why did ...",isShown:false,title:"Why did ..."},
-    {parent:idxMnuExcel,id:"xlPowerPivot",ref:"xlpowerpivot.html",name:"Power Pivot",isShown:false,title:"Power Pivot"},
-    {parent:idxMnuExcel,id:"xlEpics",ref:"xlepics.html",name:"Epics",isShown:false,title:"Epics"},
-    {parent:idxMnuExcel,id:"xlToolShed",ref:"xltoolshed.html",name:"Tool Shed",isShown:true,title:"Tool Shed"},
+const lhbSubMenu_old=[
+    {parent:oldidcMnuExcel,id:"xlHome",ref:"xlhome.html",name:"Excel Home",isShown:true,title:"Excel Home"},
+    {parent:oldidcMnuExcel,id:"xlTechniques",ref:"xltechniques.html",name:"Techniques",isShown:true,title:"Techniques"},
+    {parent:oldidcMnuExcel,id:"xlHowTo",ref:"xlhowto.html",name:"How to ...",isShown:false,title:"How to ..."},
+    {parent:oldidcMnuExcel,id:"xlWhyDid",ref:"xlwhydid.html",name:"Why did ...",isShown:false,title:"Why did ..."},
+    {parent:oldidcMnuExcel,id:"xlPowerPivot",ref:"xlpowerpivot.html",name:"Power Pivot",isShown:false,title:"Power Pivot"},
+    {parent:oldidcMnuExcel,id:"xlEpics",ref:"xlepics.html",name:"Epics",isShown:false,title:"Epics"},
+    {parent:oldidcMnuExcel,id:"xlToolShed",ref:"xltoolshed.html",name:"Tool Shed",isShown:true,title:"Tool Shed"}
 ]
 function BuildLevel1Level2Menu(myPage){
     const w3MainMenuStyle="w3-mobile w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black inupper"    
     let Parent=document.getElementById('main-bar');    
     // Build Level Menus
-    let Lvl1=lhbMainMenu.filter(menu => menu.isShown==true);   
+    let Lvl1=lhbMainMenu_old.filter(menu => menu.isShown==true);   
     for (var i = 0; i < Lvl1.length; i++) {
-                let Lvl2AllItems=lhbSubMenus.filter(submenu => submenu.parent==Lvl1[i].id);
-                let Lvl2Items=Lvl2AllItems.filter(submenu => submenu.isShown==true);
-                var menuLevel1=document.createElement("a");
+            let Lvl2AllItems=lhbSubMenu_old.filter(submenu => submenu.parent==Lvl1[i].id);
+            let Lvl2Items=Lvl2AllItems.filter(submenu => submenu.isShown==true);
+            
+            var menuLevel1=document.createElement("a");
                 menuLevel1.className=w3MainMenuStyle;
                 if (Lvl2Items.length > 0){
                     menuLevel1.classList.add("w3-dropdown-hover")};
