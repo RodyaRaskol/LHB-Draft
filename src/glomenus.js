@@ -1,42 +1,75 @@
 "use strict";
-const idxMnuExcel="menuExcel";
-const idxMnuHome="menuHome";
-const idxMnuKnowledge="menuKnowledge";
-const idxMnuFood="menuFood";
-const idxMnuStalls="menuStalls";
-const idxMnuTest="menuTest";
-const idxMnuAbout="menuAbout";
+//Areas
+const idxAreaExcel="areaExcel";
+const idxAreaHome="areaHome";
+const idxAreaKnowl="areaKnowledge";
+const idxAreaFood="areaFood";
+const idxAreaStalls="areaStalls";
+const idxAreaBench="areaBench";
+const idxAreaAbout="areaAbout";
+
+//Stores
+const LHBidHome="storeLHBHome"
+const LHBidBench="storeLHBBench"
+const LHBidBAbout = "storeLHBAbout";
+const xlidHome="storexlHome"
+const xlidTechniques="storexlTechniques"
+const xlidHowTo="storexlHowTo"
+const xlidWhyDid="storexlWhyDid"
+const xlidPowerPivot = "storexlPowerPivot";
+const xlidEpics = "storexlEpics";
+const xlidToolShed = "storexlToolShed";
+const nlidKnowlHome = "storeKnowledgeHome";
+const fdidFoodHome = "storefoodHome";
+const stidStallsHome = "storeStallsHome";
+
+
 
 const muTypeHome="HomePageLink";
 const muTypeLink="LinkOnly;"
 const muTypeHover="SubViaHover";
 const muTypeClick='SubViaClick';
-const lblDropDownContainer="DDContainer"
+const lblDropDownContainer="DDContainer";
 
-//Styles
-const stlnavmain="w3-bar-item w3-button w3-hover-white w3-bottombar w3-hover-border-black";
-const stlnavmini="w3-bar-item w3-button w3-hover-white w3-bottombar w3-hover-border-black";
-const stlClickBtn="w3-bar-item w3-button w3-hover-white w3-bottombar w3-hover-border-black";
+const toHideMini="MiniContainersHidden"
+
+const iconBurger="&#9776";
+const iconDropDown="   &#8615";
+
 
 //Main Menu Object
-const lhbMainMenuObj=[
-    {id:idxMnuHome,ref:"index.html",name:"Home",IsActive:true,title:"Home Page",deptColor:"w3-2021-buttercream",muTypeMain:muTypeHome, muTypeMini:muTypeHome},
-    {id:idxMnuExcel,ref:"xlhome.html",name:"Excel",IsActive:true,title:"Excel Home",deptColor:"w3-metro-dark-green",muTypeMain:muTypeHover,muTypeMini:muTypeHover},   
-    {id:idxMnuKnowledge,ref:"knowledge.html",name:"Knowledge",IsActive:true,title:"Knowledge Home",deptColor:"w3-2021-amethyst-orchid",muTypeMain:muTypeLink,muTypeMini:muTypeLink},
-    {id:idxMnuFood,ref:"food.html",name:"Food",IsActive:true,title:"Food Home",deptColor:"w3-food-olive", muTypeMain:muTypeLink,muTypeMini:muTypeLink},
-    {id:idxMnuStalls,ref:"stalls.html",name:"Stalls",IsActive:true,title:"Stalls Home",deptColor:"w3-metro-dark-orange", muTypeMain:muTypeLink,muTypeMini:muTypeLink},
-    {id:idxMnuTest,ref:"testbench.html",name:"Bench",IsActive:true,title:"Test Bench",deptColor:"w3-2021-french-blue", muTypeMain:muTypeLink,muTypeMini:muTypeLink},
-    {id:idxMnuAbout,ref:"about.html",name:"About",IsActive:true,title:"About Us",deptColor:"w3-metro-dark-purple", muTypeMain:muTypeLink,muTypeMini:muTypeLink}
-]
+const LHBAreasObj=[    
+{idArea:idxAreaHome, name:"Home",IsActive:true,LHBAreaColor:"w3-2021-buttercream"},
+{idArea:idxAreaExcel, name:"Excel",IsActive:true,LHBAreaColor:"w3-metro-dark-green"},   
+{idArea:idxAreaKnowl, name:"Knowledge",IsActive:true,LHBAreaColor:"w3-2021-amethyst-orchid"},
+{idArea:idxAreaFood, name:"Food",IsActive:true,LHBAreaColor:"w3-food-olive"},
+{idArea:idxAreaStalls, name:"Stalls",IsActive:true,LHBAreaColor:"w3-metro-dark-orange"},
+{idArea:idxAreaBench, name:"Bench",IsActive:true,LHBAreaColor:"w3-2021-french-blue"},
+{idArea:idxAreaAbout, name:"About",IsActive:true,LHBAreaColor:"w3-metro-dark-purple"}]
 //Sub Menu Object
-const lhbSubMenuObj=[
-    {parent:idxMnuExcel,id:"xlHome",ref:"xlhome.html",name:"Excel Home",IsActive:true,title:"Excel Home"},
-    {parent:idxMnuExcel,id:"xlTechniques",ref:"xltechniques.html",name:"Techniques",IsActive:true,title:"Techniques"},
-    {parent:idxMnuExcel,id:"xlHowTo",ref:"xlhowto.html",name:"How to ...",IsActive:false,title:"How to ..."},
-    {parent:idxMnuExcel,id:"xlWhyDid",ref:"xlwhydid.html",name:"Why did ...",IsActive:false,title:"Why did ..."},
-    {parent:idxMnuExcel,id:"xlPowerPivot",ref:"xlpowerpivot.html",name:"Power Pivot",IsActive:false,title:"Power Pivot"},
-    {parent:idxMnuExcel,id:"xlEpics",ref:"xlepics.html",name:"Epics",IsActive:false,title:"Epics"},
-    {parent:idxMnuExcel,id:"xlToolShed",ref:"xltoolshed.html",name:"Tool Shed",IsActive:true,title:"Tool Shed"}
+const LHBStoresObj=[
+{idParent:idxAreaHome,id:LHBidHome,ref:"index.html", name:"Home",IsActive:true,title:"Home Page",LHBStoreColor:null,IsAreaHome:true},
+{idParent:idxAreaExcel,id:xlidHome,ref:"xlhome.html", name:"Excel Home",IsActive:true,title:"Excel Home",LHBStoreColor:null,IsAreaHome:true},
+{idParent:idxAreaExcel,id:xlidTechniques,ref:"xltechniques.html",name:"Techniques",IsActive:true,title:"Techniques",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidHowTo,ref:"xlhowto.html",name:"How to ...",IsActive:true,title:"How to ...",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidWhyDid,ref:"xlwhydid.html",name:"Why did ...",IsActive:true,title:"Why did ...",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidPowerPivot,ref:"xlpowerpivot.html",name:"Power Pivot",IsActive:true,title:"Power Pivot",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidEpics,ref:"xlepics.html",name:"Epics",IsActive:true,title:"Epics",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidToolShed,ref:"xltoolshed.html",name:"Tool Shed",IsActive:true,title:"Tool Shed",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaKnowl,id:nlidKnowlHome,ref:"knowledge.html", name:"Knowledge",IsActive:true,title:"Knowledge Home",LHBStoreColor:null,IsAreaHome:true},
+{idParent:idxAreaFood,id:fdidFoodHome,ref:"food.html", name:"Food",IsActive:true,title:"Food Home",LHBStoreColor:null,IsAreaHome:true},
+{idParent:idxAreaStalls,id:stidStallsHome,ref:"stalls.html", name:"Stalls",IsActive:true,title:"Stalls Home",LHBStoreColor:null,IsAreaHome:true},
+{idParent:idxAreaBench,id:LHBidBench,ref:"testbench.html", name:"Bench",IsActive:true,title:"Test Bench",LHBStoreColor:null,IsAreaHome:true},
+{idParent:idxAreaAbout,id:LHBidBAbout,ref:"about.html", name:"About",IsActive:true,title:"About Us",LHBStoreColor:null,IsAreaHome:true}
+]
+
+const LHBDepartmentsObj=[
+{idParent:LHBidBench,id:"xltecqSeries", name:"Series",IsActive:true,LHBDeptColor:null, title:"Methods for projecting a Series of Numbers"},
+{idParent:LHBidBench, id:"xltecqValidation", name:"Validation",IsActive:true,LHBDeptColor:null, title: "Methods for Limiting Data Enteries"},
+{idParent:LHBidBench, id:"xltecqDates", name:"Dates",IsActive:true,LHBDeptColor:null, title:"Date Manipulation"},
+{idParent:xlidTechniques, id:"xltecqSeries", name:"Series",IsActive:true,LHBDeptColor:null, title:"Methods for projecting a Series of Numbers"},
+{idParent:xlidTechniques, id:"xltecqValidation", name:"Validation",IsActive:true,LHBDeptColor:null, title: "Methods for Limiting Data Enteries"},
+{idParent:xlidTechniques, id:"xltecqDates", name:"Dates",IsActive:true,LHBDeptColor:null, title:"Date Manipulation"},
 ]
 
 //Common Functions
@@ -48,202 +81,307 @@ function lhbShowHide(idElement) {
       x.className = x.className.replace(" w3-show", "");
     }
   }
-
-//Menu Builders
-function MenuContainerBuilder(idxMnu,IsMini=false,hasSubs=false){
-    let myMenu=lhbMainMenuObj.filter(menu =>menu.id==idxMnu); 
-    let menuItem, menuItemType, myID
-
-    if(IsMini){myID='CNTMini'+myMenu[0].id; menuItemType=myMenu[0].muTypeMini} 
-    else{myID='CNTMain'+myMenu[0].id; menuItemType=myMenu[0].muTypeMain}    
-
-    switch (menuItemType){
-        case muTypeLink:
-            menuItem=document.createElement('div');
-            menuItem.className = myMenu[0].deptColor; 
-            break;
-        case muTypeHome:
-            menuItem=document.createElement('div');
-            menuItem.className = myMenu[0].deptColor; 
-            break;
-        case muTypeHover:
-            menuItem=document.createElement('div');
-            menuItem.className = myMenu[0].deptColor;  
-            if (hasSubs){
-                    menuItem.className +=" w3-dropdown-hover";            };
-            break;
-        case muTypeClick:
-            menuItem=document.createElement('div');
-            menuItem.className = myMenu[0].deptColor; 
-            if (hasSubs){
-                menuItem.className =" w3-dropdown-click";                
-            };
-                break;
-        default:
-            break;
-    }//Close Switch    
-    menuItem.id=myID;
-    menuItem.title=myMenu[0].title;   
-
-    return menuItem;//Return the Constructed Item
-}//Close Menu Contianer Builder
-function MenuItemBuilder(idxMnu,IsMini=false,hasSubs=false){
-    let myMenu=lhbMainMenuObj.filter(menu =>menu.id==idxMnu); 
-    let menuItem, menuItemType, myID, appliedClass, fncClick,fncLabel,symClick;
-
-    if(IsMini){myID='Mini'+myMenu[0].id; menuItemType=myMenu[0].muTypeMini;appliedClass=stlnavmini;fncLabel="Mini"} 
-    else{myID='Main'+myMenu[0].id; menuItemType=myMenu[0].muTypeMain;appliedClass=stlnavmain;fncLabel="Main"}    
-
-    switch (menuItemType){
-        case muTypeLink:
-            menuItem=document.createElement('a');
-            menuItem.href=myMenu[0].ref;
-            break;
-        case muTypeHome:
-            menuItem=document.createElement('a');
-            menuItem.href=myMenu[0].ref;
-            break;
-        case muTypeHover:
-            menuItem=document.createElement('div');
-            if (hasSubs){ };
-            break;
-        case muTypeClick:
-            menuItem=document.createElement('div');
-            fncClick='lhbShowHide("'+fncLabel+idxMnu+lblDropDownContainer+'");';
-            menuItem.setAttribute('onclick',fncClick);
-            //symClick=document.createElement('i');
-            //symClick.className="fa fa-caret-down";
-            //menuItem.insertAdjacentElement('beforeend',symClick);
-            if (hasSubs){};
-            break;
-        default:
-            break;
-    }//Close Switch
-
-    menuItem.className =appliedClass;
-    menuItem.innerHTML=myMenu[0].name;
-    menuItem.className +=' '+myMenu[0].deptColor; 
-    menuItem.id=myID;
-    menuItem.title=myMenu[0].title;
+function lhbShowHideClass(myClassName) {
+   
+    let collection = document.getElementsByClassName(myClassName);
     
+    for (let i = 0; i < collection.length; i++) {
 
-    return menuItem;//Return the Constructed Item
-}//Close Item Builder
-function BuildDropDownContainer(idLabel){
-    let menuLevel2Container=document.createElement("div");                
-        menuLevel2Container.id=idLabel;
-        menuLevel2Container.className="w3-dropdown-content w3-bar-block w3-card-4";
-        return menuLevel2Container;
-}//Close DropDown Container Builder
+        if (collection[i].className.indexOf("w3-show") == -1) {
+            collection[i].className += " w3-show";
+          } else { 
+            collection[i].className = collection[i].className.replace(" w3-show", "");
+          }//Close If       
+      }//Close For   
+  }//Close Function
 
-//Main Builder Function
-function lhbBuildMenus(idxMnu){       
-    let mainParent=document.getElementById('nav-Main');
-    let miniParent=document.getElementById('nav-Mini');   
-    let myLevel1Menus=lhbMainMenuObj.filter(menu => menu.IsActive==true);
-    let menuLevel2Container, minimenuLevel2Container, mainbtn, minibtn
+function LHB_Curtain(myClassName,myCurtain) {
+    let collection = document.getElementsByClassName(myClassName);
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].classList.toggle(myCurtain);
+      }//Close For   
+  }//Close Function
 
-    // Create Regular Menus
-    for (var i = 0; i < myLevel1Menus.length; i++) {        
-        let myMenuID=myLevel1Menus[i].id
-        let myLevel2Menus=lhbSubMenuObj.filter(submenu => submenu.parent==myMenuID  &&  submenu.IsActive==true);
-        let hasSubs = myLevel2Menus.length>0
-        let myMainMenuContainer;
-        let myMiniMenuContainer;
-        //Build Contianer Types
-        myMainMenuContainer=MenuContainerBuilder(myMenuID,false,hasSubs);
-        mainParent.appendChild(myMainMenuContainer);
-        myMiniMenuContainer=MenuContainerBuilder(myMenuID,true,hasSubs);
-        miniParent.appendChild(myMiniMenuContainer);
-        //Create New Item for Main Menu
-        var myMainMenuItem=MenuItemBuilder(myMenuID,false,hasSubs);
-        // Test if its the Home Page and build out the color bar; Set Other Menus to hide on Small Screens
-        if (myLevel1Menus[i].id == idxMnuHome) 
-                {mainParent.className +=' '+myLevel1Menus[i].deptColor}     
-         else   {myMainMenuItem.className +=' w3-hide-small'};
-        //Add to Main Navi Bar
-        myMainMenuContainer.appendChild(myMainMenuItem);
+function LHB_SideBar() {   
+    const el=document.getElementById("mySidebar");
+    el.classList.toggle("w3-hide");
+  }
+  
+function LHB_close(myElement) {
+    document.getElementById(myElement).style.display = "none";
+  }
 
-        //Create New Item for the Mini Nav Bar
-        var myMiniMenuItem=MenuItemBuilder(myMenuID,true,hasSubs);
-        //Add to the Mini Nav Bar if its not the Home Page
-        if (myLevel1Menus[i].id != idxMnuHome) {
-            myMiniMenuContainer.appendChild(myMiniMenuItem)};
+//Styles - no bar item on Drop Down Buttons
+const styleDropDownButton="w3-button w3-hover-white w3-bottombar w3-hover-border-black";
+const styleLinks="w3-bar-item w3-button w3-hover-white w3-bottombar w3-hover-border-black";
+const styleDropDownItems="w3-bar-item w3-button";
 
-        if (hasSubs){      
-        //Build DropDown Containers
-        menuLevel2Container=BuildDropDownContainer('Main'+myMenuID+lblDropDownContainer);
-        myMainMenuItem.appendChild(menuLevel2Container);
-        minimenuLevel2Container=BuildDropDownContainer('Mini'+myMenuID+lblDropDownContainer);
-        myMiniMenuItem.appendChild(minimenuLevel2Container);
+const idDropHover="ddHover";
+const idDropClick="ddClick";
+const dropdownTypesObj=[
+    {idDrop:idDropHover,idW3CSS:"w3-dropdown-hover",ContentStyle:"w3-dropdown-content w3-bar-block w3-card-4"},
+    {idDrop:idDropClick,idW3CSS:"w3-dropdown-click",ContentStyle:"w3-dropdown-content w3-bar-block w3-card-4"}]
 
-        //Loop Over Sub Menu Items and add            
-        for (var j = 0; j < myLevel2Menus.length; j++) {
-            //Create the MainElement
-                
-            let myLvl2MainMenuItem=document.createElement("a");
-                myLvl2MainMenuItem.className="w3-bar-item w3-button "+myLevel1Menus[i].deptColor;
-                myLvl2MainMenuItem.title= myLevel2Menus[j].title;
-                myLvl2MainMenuItem.id= 'Main'+myLevel2Menus[j].id;
-                myLvl2MainMenuItem.innerHTML= myLevel2Menus[j].name;
-                myLvl2MainMenuItem.href=myLevel2Menus[j].ref;
-            //Create the MiniElement
-           
-            let myLvl2MiniMenuItem=document.createElement("a");
-                myLvl2MiniMenuItem.className="w3-bar-item w3-button "+myLevel1Menus[i].deptColor;
-                myLvl2MiniMenuItem.title= myLevel2Menus[j].title;
-                myLvl2MiniMenuItem.id= 'Mini'+myLevel2Menus[j].id;
-                myLvl2MiniMenuItem.innerHTML= myLevel2Menus[j].name;
-                myLvl2MiniMenuItem.href=myLevel2Menus[j].ref;
-            //Pase the Element to the Main Menu 
-            menuLevel2Container.appendChild( myLvl2MainMenuItem);
-            minimenuLevel2Container.appendChild(myLvl2MiniMenuItem);}
-            } //Close Sub Menu For Loop
-        }//Close of Main Menu Loop
+const menuTypesObj=[
+    {idMenu:"Main",IsMini:false,navRootID:"nav-Main",dropdownMethod:idDropHover, menuGrp:"NAV"},
+    {idMenu:"Mini",IsMini:true,navRootID:"nav-Mini",dropdownMethod:idDropClick,menuGrp:"NAV"},
+    {idMenu:"Dept-Mini",IsMini:true,navRootID:"departments-Mini",dropdownMethod:idDropHover,menuGrp:"Dept",TopStyleBtn:styleDropDownButton,TopStyleLink:styleLinks},
+    {idMenu:"Dept-Main",IsMini:false,navRootID:"departments-Main",dropdownMethod:idDropHover,menuGrp:"Dept",TopStyleBtn:styleDropDownButton,TopStyleLink:styleLinks}]
 
-        //Add Hamburger Menu
-        var NewMenuItem=document.createElement('span');
-        //NewMenuItem.href="javascript:void(0)";
-        NewMenuItem.className="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium";
-        NewMenuItem.setAttribute("onclick", 'lhbShowHide("nav-Mini")');
-        NewMenuItem.innerHTML="☰";
-        mainParent.appendChild(NewMenuItem);
+function LHB_Build_Primary_Navi_Dev(navType){
+//Get Menu Template
+    const navDefinition=menuTypesObj.filter(menu => menu.idMenu==navType)
+    const IsMini=navDefinition[0].IsMini;
+    const navRootID=navDefinition[0].navRootID;
+    const dropdownMethod=navDefinition[0].dropdownMethod;
+    const menuGrp=navDefinition[0].menuGrp
+    const navIDCaller=document.getElementById('LHBArea').textContent;
+    const navRoot=document.getElementById(navRootID);
+    const actvAreas=LHBAreasObj.filter(menu => menu.IsActive==true);
+    const dropdownType=dropdownTypesObj.filter(drop => drop.idDrop==dropdownMethod);
 
-        //Add Logo
-        var Logo1=document.createElement("div");
-        Logo1.className="w3-bar-item w3-right w3-hide-small";
-        Logo1.innerHTML="Life Hacks Bazaar";
-        Logo1.innerHTML.toUpperCase;
-        mainParent.appendChild(Logo1);
-
+//Other Variables  - Building Blocks
+    let areaContainer,areaItem,fncClick,dropContainer, myDropID, storeItem, navItem;
+   
+//Start Loop Over The Area  
+    for (var i = 0; i < actvAreas.length; i++) { 
+    //Set Iterated Variables
+        const myAreaID=actvAreas[i].idArea;
+        const myLHBAreaColor=actvAreas[i].LHBAreaColor;        
+        const actvStores=LHBStoresObj.filter(submenu => submenu.idParent==myAreaID  &&  submenu.IsActive==true);
+        const myHomeStore=actvStores.filter(submenu => submenu.IsAreaHome==true)
+        const nonHomeStores=actvStores.filter(submenu => submenu.IsAreaHome==false)       
+        const HasSubs = nonHomeStores.length>0; 
+        const IsLHBHomeTab=(myAreaID==idxAreaHome);
     
+    //Build Container for Area-add Area Color,DropDwon Type and Hidden attribute for Mini
+        areaContainer=document.createElement('div');
+        navRoot.appendChild(areaContainer);
+        areaContainer.className=myLHBAreaColor;
+        if (HasSubs){areaContainer.className +=" "+dropdownType[0].idW3CSS};
+        if (IsMini){areaContainer.className+=" LHBAreas w3-hide ";}
+        
+    //Area Item With Branch between Links and Buttons  
+        if (HasSubs)
+            {areaItem=document.createElement('button');
+            areaItem.className=styleDropDownButton;//No bar-item
+            myDropID=navRootID+myAreaID+lblDropDownContainer;//Used for Show/Hide Click
+            if(IsMini){ 
+                fncClick='lhbShowHide("'+myDropID+'");';
+                areaItem.setAttribute('onclick',fncClick);
+                areaItem.innerHTML=actvAreas[i].name+iconDropDown}//Adds Down Arrow
+            else
+                {areaItem.textContent=actvAreas[i].name;}
+                areaContainer.appendChild(areaItem);}
+        else//If NoSubs Creaate a hyperlink
+            {areaItem=document.createElement('a');
+            areaItem.textContent=actvAreas[i].name;
+            areaItem.href=myHomeStore[0].ref;
+            areaItem.className=styleLinks;
+            areaContainer.appendChild(areaItem);}
+    //Build Drop Container
+        if(HasSubs){
+            dropContainer=document.createElement('div');
+            areaContainer.appendChild(dropContainer);
+            dropContainer.className=dropdownType[0].ContentStyle+" "+myLHBAreaColor;
+            dropContainer.id=myDropID;
+            if(IsMini){dropContainer.className +=" w3-hide"}
+            }//Close Drop Content Container Build
+    // Add Store List as Hyperlinks
+        if (HasSubs){
+            for (var j = 0; j < actvStores.length; j++) {
+                storeItem=document.createElement('a');
+                storeItem.href=actvStores[j].ref;
+                storeItem.textContent=actvStores[j].name;
+                storeItem.className=styleDropDownItems;
+                dropContainer.appendChild(storeItem);
+             }//Close Store Loop
+            }//close if           
+        }//Close AreaLoop 
+}//Close LHBBuildNavi Function
+
+function LHB_Build_Primary_Navi(navType){
+    //Get Menu Template
+        const navDefinition=menuTypesObj.filter(menu => menu.idMenu==navType)
+        const IsMini=navDefinition[0].IsMini;
+        const navRootID=navDefinition[0].navRootID;
+        const dropdownMethod=navDefinition[0].dropdownMethod;
+        const menuGrp=navDefinition[0].menuGrp
+        const navIDCaller=document.getElementById('LHBArea').textContent;
+        const navRoot=document.getElementById(navRootID);
+        const actvAreas=LHBAreasObj.filter(menu => menu.IsActive==true);
+        const dropdownType=dropdownTypesObj.filter(drop => drop.idDrop==dropdownMethod);
+    
+    //Other Variables  - Building Blocks
+        let areaContainer,areaItem,fncClick,dropContainer, myDropID, storeItem, navItem;
        
-
-}//Close Build Level!Menu
-    
-    
-    /*for (var i = 0; i < Lvl1.length; i++) {
+    //Start Loop Over The Area  
+        for (var i = 0; i < actvAreas.length; i++) { 
+        //Set Iterated Variables
+            const myAreaID=actvAreas[i].idArea;
+            const myLHBAreaColor=actvAreas[i].LHBAreaColor;        
+            const actvStores=LHBStoresObj.filter(submenu => submenu.idParent==myAreaID  &&  submenu.IsActive==true);
+            const myHomeStore=actvStores.filter(submenu => submenu.IsAreaHome==true)
+            const nonHomeStores=actvStores.filter(submenu => submenu.IsAreaHome==false)       
+            const HasSubs = nonHomeStores.length>0; 
+            const IsLHBHomeTab=(myAreaID==idxAreaHome);
+        
+        //Build Container for Area-add Area Color,DropDwon Type and Hidden attribute for Mini
+            areaContainer=document.createElement('div');
+            navRoot.appendChild(areaContainer);
+            areaContainer.className=myLHBAreaColor;
+            if (HasSubs){areaContainer.className +=" "+dropdownType[0].idW3CSS};
+            if (IsMini && !(IsLHBHomeTab)){areaContainer.className+=" w3-hide "+toHideMini+menuGrp;}
             
-            var menuLevel1=document.createElement("a");
-                menuLevel1.className=w3MainMenuStyle;
-                if (Lvl2Items.length > 0){
-                    menuLevel1.classList.add("w3-dropdown-hover")};
-                menuLevel1.title=Lvl1[i].title;
-                menuLevel1.id=Lvl1[i].id;
-                menuLevel1.innerHTML=Lvl1[i].name;
-                menuLevel1.href=Lvl1[i].ref
-                Parent.appendChild(menuLevel1)
-;
-               
-        }//Close Loop
+        //Area Item With Branch between Links and Buttons  
+            if (HasSubs)
+                {areaItem=document.createElement('button');
+                areaItem.className=styleDropDownButton;//No bar-item
+                myDropID=navRootID+myAreaID+lblDropDownContainer;//Used for Show/Hide Click
+                if(IsMini){ 
+                    fncClick='lhbShowHide("'+myDropID+'");';
+                    areaItem.setAttribute('onclick',fncClick);
+                    areaItem.innerHTML=actvAreas[i].name+iconDropDown}//Adds Down Arrow
+                else
+                    {areaItem.textContent=actvAreas[i].name;}
+                    areaContainer.appendChild(areaItem);}
+            else//If NoSubs Creaate a hyperlink
+                {areaItem=document.createElement('a');
+                areaItem.textContent=actvAreas[i].name;
+                areaItem.href=myHomeStore[0].ref;
+                areaItem.className=styleLinks;
+                areaContainer.appendChild(areaItem);}
+        //Build Drop Container
+            if(HasSubs){
+                dropContainer=document.createElement('div');
+                areaContainer.appendChild(dropContainer);
+                dropContainer.className=dropdownType[0].ContentStyle+" "+myLHBAreaColor;
+                dropContainer.id=myDropID;
+                if(IsMini){dropContainer.className +=" w3-hide"}
+                }//Close Drop Content Container Build
+        // Add Store List as Hyperlinks
+            if (HasSubs){
+                for (var j = 0; j < actvStores.length; j++) {
+                    storeItem=document.createElement('a');
+                    storeItem.href=actvStores[j].ref;
+                    storeItem.textContent=actvStores[j].name;
+                    storeItem.className=styleDropDownItems;
+                    dropContainer.appendChild(storeItem);
+                 }//Close Store Loop
+                }//close if           
+        // Add Menu Expander for Mini Home
+            if (IsLHBHomeTab && IsMini){    
+                areaItem.className = areaItem.className.replace("w3-bar-item", "");
+                navItem=document.createElement('button');
+                navItem.className="w3-button w3-right";
+                navItem.innerHTML=iconBurger;
+                navItem.title="Expand Menus";
+                navItem.setAttribute('onclick','lhbShowHideClass("'+toHideMini+menuGrp+'")');
+                areaContainer.appendChild(navItem);};
+            }//Close AreaLoop 
+    }//Close LHBBuildNavi Function
 
-    //Add Logo
-    var Logo1=document.createElement("div")
-        Logo1.className="w3-bar-item w3-right w3-hide-small inupper"
-        Logo1.innerHTML="Life Hacks Bazaar"
-        Parent.appendChild(Logo1)
-         
-    //Add Active page marker
-    var x =document.getElementById(myPage);
-        x.className=x.className.replace("w3-border-white","w3-border-black") ;   
-    }//Close Build Function*/
+function LHBBuildOutline(){
+    const navID=document.getElementById('LHBArea');
+    const myMainBanner=document.getElementById('storeBanner-main');
+    const myMiniBanner=document.getElementById('storeBanner-mini');
+    const navMenu=LHBAreasObj.filter(menu => menu.idArea==navID.textContent);
+    const myColor=navMenu[0].LHBAreaColor;
+    myMainBanner.className +=' '+myColor;
+    myMiniBanner.className +=' '+myColor;
+}
+function LHB_Build_Departments(navType){
+//Get Menu Template
+    const navDefinition=menuTypesObj.filter(menu => menu.idMenu==navType)
+    const IsMini=navDefinition[0].IsMini;
+    const navRootID=navDefinition[0].navRootID;
+    const dropdownMethod=navDefinition[0].dropdownMethod;
+    const menuGrp=navDefinition[0].menuGrp
+    const dropdownType=dropdownTypesObj.filter(drop => drop.idDrop==dropdownMethod);
+    const TopStyleBtn=navDefinition[0].TopStyleBtn;
+    const TopStyleLink=navDefinition[0].TopStyleBtn;
+//Get Doc Elements
+    const docArea=document.getElementById("LHBArea").textContent
+    const docStore=document.getElementById("LHBStore").textContent
+    const navRoot=document.getElementById(navRootID);
+    const myDeptBtn=document.getElementById("deptBtn");
+// Get Area and Store Objects
+    const myArea=LHBAreasObj.filter(area=>area.idArea==docArea);
+    const myStore=LHBStoresObj.filter(store=>store.id==docStore);
+    const myDepartments=LHBDepartmentsObj.filter(menu => menu.IsActive==true  && menu.idParent==docStore);
+    const myColorArea=myArea[0].LHBAreaColor;
+    
+    if (IsMini){myDeptBtn.className+=" "+myColorArea};
+    const myColorStore=myStore[0].LHBStoreColor;    
+    let myColorDept,myColorForMenu;   
+//Other Variables  - Building Blocks
+    let TopContainer,TopItem,fncClick,dropContainer, myDropID, DropItem, navContainer,navItem;
+//Start Build Loop
+   for (var i = 0; i < myDepartments.length; i++) {
+    //Set Iterated Variables
+    myColorDept=myDepartments[i].LHBDeptColor;
+    if(myColorDept == null){myColorForMenu='w3-white'}else{myColorForMenu=myColorDept};
+    
+    const HasSubs=true
+    const myLoopID=myDepartments[i].id
+//Build Container for Area-add Area Color,DropDwon Type and Hidden attribute for Mini
+    TopContainer=document.createElement('div');
+    navRoot.appendChild(TopContainer);
+    TopContainer.className=myColorForMenu;
+    if (HasSubs){TopContainer.className +=" "+dropdownType[0].idW3CSS};
+    if (IsMini){TopContainer.className+=" LHBDepartments w3-hide ";}
+//Add Departments
+    TopItem=document.createElement('button');
+    TopItem.className=TopStyleBtn;//No bar-item
+    myDropID=navRootID+myLoopID+lblDropDownContainer;//Used for Show/Hide Click
+    if(IsMini){ 
+        fncClick='lhbShowHide("'+myDropID+'");';
+        TopItem.setAttribute('onclick',fncClick);
+        TopItem.innerHTML=myDepartments[i].name+iconDropDown}//Adds Down Arrow
+    else
+        {TopItem.textContent=myDepartments[i].name;};
+    TopContainer.appendChild(TopItem);
+//Add Drop Containers
+    dropContainer=document.createElement('div');
+    TopContainer.appendChild(dropContainer);
+    dropContainer.className=dropdownType[0].ContentStyle+" "+myColorForMenu;
+    dropContainer.id=myDropID;
+    if(IsMini){dropContainer.className +=" w3-hide"};      
+    }//Close Department for Loop
+}//Close Build Departments
+
+function LHB_WireIn_Items(navType){
+    const navDefinition=menuTypesObj.filter(menu => menu.idMenu==navType)
+    const IsMini=navDefinition[0].IsMini;
+    const navRootID=navDefinition[0].navRootID;
+    const dropdownMethod=navDefinition[0].dropdownMethod;
+    const menuGrp=navDefinition[0].menuGrp
+//Get Doc Elements
+    const docArea=document.getElementById("LHBArea").textContent
+    
+    const docStore=document.getElementById("LHBStore").textContent
+// Get Area and Store Objects
+    const myArea=LHBAreasObj.filter(area=>area.idArea==docArea);
+    const myStore=LHBStoresObj.filter(store=>store.id==docStore);
+    const myItemColor=myArea[0].LHBAreaColor
+    const myDepartments=LHBDepartmentsObj.filter(menu => menu.IsActive==true  && menu.idParent==docStore);
+    const myItemsObj=xlTechniquesItemsObj;
+//Loop over Departments
+    for (var i = 0; i < myDepartments.length; i++){   
+        const myLoopID=myDepartments[i].id
+        const myDropID=navRootID+myLoopID+lblDropDownContainer;
+        const myItems=myItemsObj.filter(item=>item.ParentID==myLoopID  && item.IsActive==true);
+        const HasItems=myItems.length>0;
+        const DepartmentContainer=document.getElementById(myDropID);       
+        //Add Items to department
+        for (var j = 0; j < myItems.length; j++){
+            const myItem=document.createElement('button');
+            myItem.textContent=myItems[j].itemName;
+            myItem.className=styleDropDownItems+" "+myItemColor;
+            myItem.title=myItems[j].title;
+            const myAction=myItems[j].Action+'("'+myItems[j].id+'")';
+            myItem.setAttribute('onclick',myAction);
+            DepartmentContainer.appendChild(myItem);
+        }//Close Item Loop
+    }//Close Departments Loop
+}//Close WireInItems

@@ -1,4 +1,4 @@
-const { json } = require("stream/consumers");
+
 
 //Types of Technique Buttons
 const muBtn="MenuButton"
@@ -6,12 +6,17 @@ const muDrop="MenuDrop"
 
 //Index Names for Techniques
 const idRootTechniques="TechniBtnContainer";
-const idxtecNumberSeries="idNumSeries";
-const idxtecValidation="idValidation";
-const idxtecBasicValidation="idBasicValidation";
-const idxtecCondValidation="idCondValidation";
-const idxtecDates="idDates";
-const idxtecMonthSeries="idMonthSeries"
+
+//Department ID's
+const idDeptNumberSeries="xltecqSeries";
+const idDeptValidation="xltecqValidation";
+const idDeptDates="xltecqDates";
+
+//Item ID's
+const idItemXLNumSeries="xlItemNumSeries";
+const idItemXLBasicValid="xlItemBasicValidation";
+const idItemXLCondiValid="xlItemCondValidation";
+const idItemXLMonthSeries="xlItemMonthSeries"
 
 // Excel Functions Index
 const idxFncIF=1
@@ -29,94 +34,101 @@ const idxProCreateTable=1;
 const idxProFillSeries=2;
 const idxProNameManager=3;
 const idxProValidationManager=4;
+const idxPasteDialog=5;
 
 
 
-const xlTechniques=[
-    {Name:"Number Series",
-    id:idxtecNumberSeries,
+const xlTechniquesItemsObj=[
+    {itemName:"Number Series",
+    id:idItemXLNumSeries,
     title:"Generate a Series of Numbers",
-    ParentID:idRootTechniques,
+    ParentID:idDeptNumberSeries,
     Created:"2022-02-22",
     Updated:"2022-02-22",
-    Action:"",
+    Action:"InitTechnique",
     muType:muBtn,
-    isShown:true,
+    IsActive:true,
     fncs:[idxFncIF,idxFncSEQUENCE],
     pros:[idxProFillSeries,idxProCreateTable],
     tecs:[],
     VideoName:"28 Numbers Later",
-    methods:[{acLevel:1,methName:"Veteran",videoSRC:"videos/SC01.mp4"},
-            {acLevel:1,methName:"Star",videoSRC:"videos/SC02.mp4"},
-            {acLevel:1,methName:"Star?",videoSRC:"videos/SC03.mp4"},
-            {acLevel:1,methName:"Horizontal",videoSRC:"videos/SC04.mp4"},
-            {acLevel:1,methName:"Superstar",videoSRC:"videos/SC05.mp4"},
-            {acLevel:1,methName:"M365",videoSRC:"videos/SC06.mp4"}]},
-   
-    {Name:"Validation",
-   id:idxtecValidation,
+    Mission:"Methods for Listing a series of numbers.",
+    Details:[{Discussion:'There are a few methods to list a number series from the basic drag/fill, shown in the "Veteran" method,'},
+    {Discussion:' utlising the "Fill Series" procedure illustrated in the "Star Method".  "Star?" shows the most common'},
+    {Discussion:' error, which is not entering a starting value in the cell.  Excel functions best with a structure where a column is'},
+    {Discussion:' filled with the same "type of data" rather than having different formulas in different rows of the column.'},
+{Discussion:' However there may be occasions when a horizontal report is called for, especially in Financial Reports, and "Fill Series"'},
+{Discussion:' as shown in "Horizontal" can be used to fill in a row.\n'},
+{Discussion:'Modern verions of Excel contain additional formulas such as "Sequence" which can also generate series shown in "M365".'},
+{Discussion:' The "Superstar" tab creates a series and then turns it into a formula which can be converted into a Table.  As we do this'},
+{Discussion:' frequently we have created a tool which does most of the work.'}],
+    methods:[{acLevel:1,methName:"Veteran",videoSRC:"videos/SC01.mp4",methType:"Video"},
+            {acLevel:1,methName:"Star",videoSRC:"videos/SC02.mp4",methType:"Video"},
+            {acLevel:1,methName:"Star?",videoSRC:"videos/SC03.mp4",methType:"Video"},
+            {acLevel:1,methName:"Horizontal",videoSRC:"videos/SC04.mp4",methType:"Video"},
+            {acLevel:1,methName:"Superstar",videoSRC:"videos/SC05.mp4",methType:"Video"},
+            {acLevel:1,methName:"M365",videoSRC:"videos/SC06.mp4",methType:"Video"},
+            {acLevel:1,methName:"LHB Tools",videoSRC:"videos/SC07.mp4",methType:"Video"}]},
+{itemName:"Basic",
+   id:idItemXLBasicValid,
    title:"Limit the value that can be entered into a cell",
-   ParentID:idRootTechniques,
+   ParentID:idDeptValidation,
    Created:"2022-02-22",
    Updates:"2022-02-22",
-   Action:"",
-   muType: muDrop,
-   isShown:true,
-   fncs:[],
-   pros:[],
-   tecs:[]},
-
-   {Name:"Basic",
-   id:idxtecBasicValidation,
-   title:"Limit the value that can be entered into a cell",
-   ParentID:idxtecValidation,
-   Created:"2022-02-22",
-   Updates:"2022-02-22",
-   Action:"",
+   Action:"InitTechnique",
    muType:muBtn,
-   isShown:true,
+   IsActive:true,
    fncs:[],
-   pros:[idxProNameManager,idxProValidationManager],
-   tecs:[]},
+   pros:[idxProNameManager,idxProValidationManager,idxProCreateTable,idxPasteDialog],
+   tecs:[],
+   VideoName:"Not to be!",
+Mission:"Limit the values that can be entered into a cell",
+Details:[{Discussion:"Data Valiadation is used to control what values are allowed to be entered into a cell."},
+{Discussion: 'Using the settings in the Validation manager allows the limitations to be set.  It may be a case of setting a '},
+{Discussion: 'range, as demonstrated by "Number Range" or from a list of acceptable values shwon in "Text Range.'},
+{Discussion:'  Using a table as the reference allows the list to automatically expand as new enteries are added.'},
+{Discussion:"  It's not necessary to use a Name as a reference to the cells in the table in wks!a1:a10 form will also work,"},
+{Discussion:' but we find Named ranges are easier to work with.  It would be great if the Validation tool got a complete update'},
+{Discussion:', so that it could accept more advance formulas but we deal with what we have.'}],
+methods:[{acLevel:1,methName:"Number Range",videoSRC:"videos/S1E2Sc1.mp4",methType:"Video"},
+{acLevel:1,methName:"Text Range",videoSRC:"videos/S1E2Sc2.mp4",methType:"Video"},
+{acLevel:1,methName:"Veteran",videoSRC:"videos/S1E2Sc3.mp4",methType:"Video"},
+{acLevel:1,methName:"Star",videoSRC:"videos/S1E2Sc4.mp4",methType:"Video"},
+{acLevel:1,methName:"LHB Tools",videoSRC:"videos/S1E2Sc5.mp4",methType:"Video"}]},
 
-   {Name:"Conditional",
-   id:idxtecCondValidation,
+   {itemName:"Conditional",
+   id:idItemXLCondiValid,
    title:"Validation based upon a value in an adjacent cell",
-   ParentID:idxtecValidation,
+   ParentID:idDeptValidation,
    Created:"2022-02-22",
    Updates:"2022-02-22",
-   Action:"",
+   Action:"InitTechnique",
    muType:muBtn,
-   isShown:false,
+   IsActive:true,
    fncs:[idxFncOffset,idxFncMatch,idxFncCountIfs],
    pros:[idxProNameManager,idxProValidationManager,idxProCreateTable],
-   tecs:[]},
+   tecs:[],
+   VideoName:null,
+Mission:"Limit the values that can be entered into a cell",
+Details:[{Discussion:"To Follow"}],
+methods:[{acLevel:1,methName:null,videoSRC:null}]},
    
-   {Name:"Dates",
-   id:idxtecDates,
-   title:"Date Manipulations",
-   ParentID:idRootTechniques,
-   Created:"2022-02-22",
-   Updates:"2022-02-22",
-   Action:"",
-   muType: muDrop,
-   isShown:true,
-   fncs:[],
-   pros:[],
-   tecs:[]},
-
-   {Name:"Monthly Series",
-   id:idxtecMonthSeries,
+   {itemName:"Monthly Series",
+   id:idItemXLMonthSeries,
    title:"Forecast date in Month",
-   ParentID:idxtecDates,
+   ParentID:idDeptDates,
    Created:"2022-02-22",
    Updates:"2022-02-22",
-   Action:"",
+   Action:"InitTechnique",
    muType:muBtn,
-   isShown:true,
+   IsActive:true,
    fncs:[idxFncEDATE,idxFncEOMONTH],
    pros:[],
-   tecs:[idxtecNumberSeries]}
+   tecs:[idItemXLNumSeries],
+   VideoName:null,
+Mission:"How to determine a date [x] months before/after an Initial Date.",
+Details:[{Discussion:"To Follow"}],
+methods:[{acLevel:1,methName:null,videoSRC:null}]}
 ];//Close LHB Techniques
 
 
@@ -215,12 +227,25 @@ const xlProcedures=[
     +" but you need to hit enter after typing the name and if the name already exists"
     +" in the workbook, Excel moves to the named range."},
 
-    {name:"Validation",
+    {name:"Validation-Manager",
     id:idxProValidationManager,
     Message:"To display Validation Manager:",
     Menu:"Data>Data Tools>Data Validation",
     WinTip:"Hold ALT then A,V,V",
     WebTip:"TBC",
     MacTip:"TBC",
-    Note:"None"}
+    Note:"None"},
+
+    {name:"Paste Name Dialog",
+    id:idxPasteDialog,
+    Message:'In the Data Validation manager to get a list of workbook names type "=" then press ',
+    Menu:null,
+    WinTip:"F3",
+    WebTip:"May not be available",
+    MacTip:"TBC",
+    Note:"If the Paste Name dialog is not available you can type the name."
+    +'  On Excel Online Names are not available and you need to refer to the range manually.'
+    +'  Referring to ranges with a Sheet!A1:Ax will work on any platform and as long as the range is in a Table'
+    +' the available options under validation will reflect any changes in size of the source.'}
+
     ];//Close Excel Procedures

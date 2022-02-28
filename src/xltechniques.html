@@ -1,82 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Techniques</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="glocolors.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
-    <link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Excel Techniques</title> 
+  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="glocolors.css">
+  <script src="glomenus.js"></script>
+  <script src="database.js"></script>
+  <script src="xltechs.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="code.js"></script>
-    <script src="glomenus.js"></script>
-    <script src="xltechs.js"></script>
-    <script src="database.js"></script>   
+  
 </head>
 <body>
-  <nav id="nav-Main" class="w3-bar" >
-    <!--Filled by Script-->
-  </nav>
-  <nav id="nav-Mini" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium">
-    <!--Filled by Script-->
-  </nav>
-  <script>lhbBuildMenus("menuTest");</script>
-<div class="w3-container">
- 
+  <!--Information for JS Builder  Verigy Correct Area and Store Name-->
+  <div id="LHBArea" class="w3-hide">areaExcel</div>
+  <div id="LHBStore" class="w3-hide">storexlTechniques</div>
 
-  <div class="w3-container w3-teal w3-hide-small">
-        <h4>Techniques</h4>
-        <div id="tech-bar" class="w3-bar"></div>
-        </div>
-    <div class="w3-mobile w3-dropdown-hover w3-teal w3-hide-medium w3-hide-large">
-      <button class="w3-bar w3-button">Techniques</button>
-      <div id="tech-bar-mini" class="w3-dropdown-content w3-bar-block w3-border"></div>      
+  <div class="w3-sidebar w3-bar-block w3-hide w3-card" style="width:250px;" id="mySidebar">
+    <button type="button" class="w3-bar-item w3-button" onclick="LHB_SideBar()">Close &times;</button>
+    <div id="nav-Mini" class="w3-bar-block">
+        <div class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBAreas", "w3-hide")'>&#9776 Areas</div>
     </div>
-    <script>BuildTechniquesBar();</script>
-  
-  <div class="w3-row-padding">
-    <div id="colIngredients" class="w3-col m2 l2">
-    <!--div class="w3-sidebar w3-bar-block"-->           
-      <h2>Ingredients</h2>
-        <a  title="Link to Microsoft Functions Site"
-            href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188">  
-        <h3>Functions</h3></a>
-          <div id ="XlFunctionsPH"  title="The Excel functions used" class="w3-bar-block">
-            <!--Filled by Javascript-->                       
-          </div>
-        <h3>Procedures</h3>
-          <div id="xlProceduresPH" class="w3-bar-block" title="How to access the Excel Procedures used">
-            <!--Filled by Javascript-->   
-          </div><!--Close Procedures-->
-        <h3>Techniques</h3>
-          <div id="xlTechniquesPH"  title="Techniques required">
-            <!--Filled by Javascript-->   
-          </div>
-    <!--/div--> <!--Close SideBar-->
-    </div><!--Close Ingredients-->
+  </div>
+  <div id="storeBanner-mini" class="w3-main w3-hide-large h1" onclick="LHB_SideBar()">
+       &#9776 Excel Techniques
+ </div>
 
-    <div id="colContents" class="w3-col m10 l10">
-      <h2 id="VideoTitlePH" class ="videotitle">Content</h2>
-      <div id="method-bar" class="w3-bar w3-hide-small"></div>
+  <div id="nav-Main" class="w3-bar w3-hide-small w3-hide-medium" ></div>
+  <div id="storeBanner-main" class="w3-container w3-hide-small w3-hide-medium">
+    <h1>Excel Techniques</h1>
+  </div>
+  <div id="departments-Main" class="w3-bar LHBDepartments LHBFontSize" ></div> 
+
+<div class="w3-container">
+  <div class="w3-row-padding">
+    <div class="w3-col w3-hide-small w3-hide-medium l2">    
+      <a  title="Link to Microsoft Functions Site"
+      href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188"
+      class="w3-hide-small">  
+      <h3 >Functions</h3></a>
+        <div id ="XlFunctionsPH" class="w3-bar-block w3-hide-small TechToggleItems" title="The Excel functions used" >
+        </div>
+      <h3>Procedures</h3>
+        <div id="xlProceduresPH" class="w3-bar-block w3-hide-small TechToggleItems" title="How to access the Excel Procedures used">
+      </div>
+      <h3>Techniques</h3>
+        <div id="xlTechniquesPH" class="w3-bar-block w3-hide-small TechToggleItems" title="Techniques required">
+      </div>
+    </div>
+    <div class="w3-rest">
+      <div id="departments-Mini" class="w3-dropdown-content w3-bar-block LHBDepartments w3-hide"></div>
+      <h2 id="VideoTitlePH" class ="videotitle w3-hide-small w3-hide-medium LHBFontSize">Content</h2>
       
-      <div class="w3-mobile w3-dropdown-hover w3-teal w3-hide-medium w3-hide-large">
-        <button class="w3-bar w3-button">Methods</button>
-        <div id="method-bar-mini" class="w3-dropdown-content w3-bar-block w3-border"></div>
+      
+      <div id="CommonItems" class="LHBFontSize">
+        <div id="Mini-Ingredients" class="w3-hide-large w3-bar">
+          <h4 type="button" id="Mini-VideoTitlePH" class="w3-button w3-bar-item">Content</h4>
+          <div class="w3-bar-item w3-dropdown-hover w3-bar-block">
+            <div id="fncBtn" class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBFunctions", "w3-hide")'>&#9776 Functions</div>
+            <div id="functions-Mini" class="w3-dropdown-content w3-bar-block LHBFunctions w3-hide"></div>
+          </div>
+          <div class="w3-bar-item w3-dropdown-hover w3-bar-block">
+            <div id="prcBtn"class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBProcedures", "w3-hide")'>&#9776 Procedures</div>
+            <div id="procedures-Mini" class="w3-dropdown-content w3-bar-block LHBProcedures w3-hide"></div>
+          </div>
+          <div  class="w3-bar-item w3-dropdown-hover w3-bar-block">
+            <div id="tchBtn" class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBTechniques", "w3-hide")'>&#9776 Techniques</div>
+            <div id="techniques-Mini" class="w3-dropdown-content w3-bar-block LHBTechniques w3-hide"></div>
+          </div>
+        </div>
+
+        
+      </div>
+      
+
+      <div>
+        <div class="w3-row">
+          <div class="w3-col" style="width:120px">
+            <div id="method-bar" class="w3-bar-block w3-left LHBFontSizeMethods">
+               <button id="tabdisc2" type="button" class="w3-button" onclick="openTabs('DiscTab')">Discussion</button></div>
+          </div>
+          <div >
+            <div id="DiscTab" class="xlTecTab w3-rest">
+              <div class="w3-container">
+              <div id="Mission" class="w3-large w3-bottombar"></div>
+              <div id="Details"></div>
+              </div>
+            </div>
+            <div id ="VideoTab" class="xlTecTab w3-rest" style="display:none">           
+              <video width="100%" autoplay=-1 controls id="tech-video" >
+                <source  src="" type="video/mp4">                        
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <video width="100%" autoplay=-1 controls id="tech-video">
-        <source  src="" type="video/mp4">                        
-        Your browser does not support the video tag.
-      </video>
-    </div><!--Close Content-->           
-  </div><!--Close Rows-->
-</div><!--Close Body Contianer-->   
+    </div>
+  </div>
+</div>
 </body>
+<script>LHB_Build_Primary_Navi_Dev("Main");</script> 
+<script>LHB_Build_Primary_Navi_Dev("Mini");</script>
+<script>LHBBuildOutline();</script>
+
+<script>LHB_Build_Departments("Dept-Main");</script> 
+<script>LHB_WireIn_Items("Dept-Main");</script>
+<!--script>LHB_Build_Departments("Dept-Mini");</script>
+<script>LHB_WireIn_Items("Dept-Mini");</script--> 
 </html>

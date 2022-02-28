@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="glocolors.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,19 +15,31 @@
 
 </head>
 <body>
-    <div class="container">
-         <!--add this line to generate the nav bar with page name to identift current page-->
-         <div id="main-bar"></div>       
-         <script>BuildMainNaviBar("jsNaviBar_work");</script>
-        <div class="subnav-wrapper">
-            <div class="subnav-link-wrapper">
-                <a href="powerbi.html">Power BI</a>
+    <div class="w3-container">
+        <div id="nav-Main" class="w3-bar w3-hide-small">
+            <a class="w3-bar-item w3-button w3-hover-white w3-bottombar w3-hover-border-black w3-2021-buttercream" href="index.html">Home</a>
+            <div class="w3-dropdown-hover">
+            <button class="w3-button w3-hover-white w3-bottombar w3-hover-border-black w3-metro-dark-green">Excel Home</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="xlhome.html" class="w3-bar-item w3-button">Excel Home</a>
+                <a href="xltechniques.html" class="w3-bar-item w3-button">Techniques</a>
             </div>
-        </div>
-
-        <div class="content-wrapper">
-
-
+            </div>
+            <a class="w3-bar-item w3-button w3-hover-white w3-bottombar w3-hover-border-black w3-2021-french-blue" href="testbench.html">Bench</a>
+        </div>  
+    </div>
+    <div class="w3-container">
+        <div class="w3-bar w3-light-grey">
+            <a href="#" class="w3-bar-item w3-button">Home</a>
+            <div class="w3-dropdown-hover">
+            <button class="w3-button">Dropdown</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+              <a href="#" class="w3-bar-item w3-button">Link 1</a>
+              <a href="#" class="w3-bar-item w3-button">Link 2</a>
+              <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button">Link 1</a>    
         </div>
     </div>
 </body>

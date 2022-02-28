@@ -4,25 +4,94 @@
   <meta charset="UTF-8">
   <meta content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LHB Test Bench</title>
+  <title>LHB Test Bench</title> 
+  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="glocolors.css">
   <script src="glomenus.js"></script>
+  <script src="database.js"></script>
+  <script src="xltechs.js"></script>
+  
 </head>
 <body>
+  <!--Information for JS Builder  Verifiy Correct Area and Store Name-->
+  <div id="LHBArea" class="w3-hide">areaBench</div>
+  <div id="LHBStore" class="w3-hide">storeLHBBench</div>
   
-  <nav id="nav-Main" class="w3-bar" >
-    <!--Filled by Script-->
-  </nav>
-  <nav id="nav-Mini" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium">
-    <!--Filled by Script-->
-  </nav>
-  <script>lhbBuildMenus("menuTest");</script>
+  <div class="w3-sidebar w3-bar-block w3-card" style="width:250px;" id="mySidebar">
+    <button type="button" class="w3-bar-item w3-button " onclick="LHB_SideBar()">Close &times;</button>
+    <div id="nav-Mini" class="w3-bar-block">
+        <div class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBAreas", "w3-hide")'>&#9776 Areas</div>
+    </div>
+    <div id="departments-Mini" class="w3-bar-block">
+        <div class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBDepartments", "w3-hide")'>&#9776 Departments</div>
+    </div>
+    <div id="Ingredients-Mini">
+        <div class="w3-center w3-bottombar">Ingredients</div>
+    <div id="functions-Mini" class="w3-bar-block">
+        <div class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBFunctions", "w3-hide")'>&#9776 Functions</div>
+    </div>
+    <div id="procedures-Mini" class="w3-bar-block">
+        <div class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBProcedures", "w3-hide")'>&#9776 Procedures</div>
+    </div>
+    <div id="techniques-Mini" class="w3-bar-block">
+        <div class="w3-bar-item w3-button" onclick='LHB_Curtain("LHBTechniques", "w3-hide")'>&#9776 Techniques</div>
+    </div>
+    </div>
+    </div>
+  <div id="storeBanner-mini" class="w3-main w3-hide-large h1" onclick="LHB_SideBar()">
+       &#9776 LHB Test Bench-Small/Medium
+ </div>
+ <script>LHB_Build_Primary_Navi_Dev("Mini");</script>
+ <script>LHB_Build_Departments("Dept-Mini");</script>
+
+  <div id="nav-Main" class="w3-bar w3-hide-small w3-hide-medium" ></div>
+  <header id="storeBanner-main" class="w3-container w3-hide-small w3-hide-medium">
+    <h1>LHB Test Bench</h1>
+  </header>
+  <nav id="departments-Main" class="w3-bar w3-hide-small w3-hide-medium" ></nav> 
+  <script>LHB_Build_Primary_Navi_Dev("Main");</script> 
+ 
+  <script>LHBBuildOutline();</script>
+  <script>LHB_Build_Departments("Dept-Main");</script>
+ 
+  <script>LHB_WireIn_Items("Dept-Main");</script>
+  <script>LHB_WireIn_Items("Dept-Mini");</script> 
 
 <div class="w3-container">
-  <p>In the example, the navigation bar is replaced with a button (☰) in the top right corner when shown on tablets and mobile devices. When the button is clicked, the links in the bar will vertically stack.</p>
-  <p>Resize the screen to see the effect.</p>
+<div class="w3-row-padding">
+  <div class="w3-col w3-hide-small w3-hide-medium l2">
+    
+    <div class ="w3-bar w3-hide-medium w3-hide-large">
+      <button type="button" class="w3-button w3-left">Ingredients</button>
+      <button type="button" class="w3-button w3-right" onclick='LHB_Curtain("TechToggleItems", "w3-hide-small")'>&#9776</button>
+    </div>    
+      <a  title="Link to Microsoft Functions Site"
+      href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188"
+      class="w3-hide-small">  
+        <h3 >Functions</h3></a>
+        <div id ="XlFunctionsPH" class="w3-bar-block w3-hide-small TechToggleItems" title="The Excel functions used" >
+        </div>
+        <h3>Procedures</h3>
+        <div id="xlProceduresPH" class="w3-bar-block w3-hide-small TechToggleItems" title="How to access the Excel Procedures used">
+        </div>
+        <h3>Techniques</h3>
+        <div id="xlTechniquesPH" class="w3-bar-block w3-hide-small TechToggleItems" title="Techniques required">
+        </div>
+    </div>
+ 
+    
+  <div class="w3-rest">
+  <h4 id="VideoTitlePH" class ="videotitle">Content</h4>
+    <div id="method-bar" class="w3-bar"></div>
+    
+    <video width="100%" autoplay=-1 controls id="tech-video">
+      <source  src="" type="video/mp4">                        
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </div>
-
+</div>
 </body>
+
 </html>
