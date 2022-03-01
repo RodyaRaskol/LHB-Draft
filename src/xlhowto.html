@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel How To</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="code.js"></script>
-
+    <link rel="stylesheet" href="glocolors.css">
+    <script src="glomenus.js"></script>
+    <script src="database.js"></script>
+    <script src="xltechs.js"></script>
 </head>
 <body>
-    <div class="container">
-         <!--add this line to generate the nav bar with page name to identift current page-->
-         <div id="main-bar"></div>       
-         <script>BuildMainNaviBarW3("idxExcel");</script>
-         <div id="sub-bar"> </div>          
-            <script>BuildSubNaviBar("Excel","xlhowto");</script>
-        </div>
+    <!--Information for JS Builder  Verify Correct Area and Store Name-->
+  <div id="LHBArea" class="w3-hide">areaExcel</div>
+  <div id="LHBStore" class="w3-hide">storexlHowTo</div>
+  <div id="nav-Main" class="w3-bar w3-hide-smallmedium LHBMainNav" ></div>
+  <div id="storeBanner-main" class="w3-container LHBFontSizeBanner">
+    <button id="smToggleBtn" type="button" class="w3-border-0 w3-hide-large" onclick='LHB_Curtain("LHBMainNav", "w3-hide-smallmedium")'>&#9776</button>
+    <span>How to...</span>
+  </div>
 
         <div class="content-wrapper">
 
@@ -27,5 +27,6 @@
         </div>
     </div>
 </body>
-
+<script>LHB_Build_Primary_Navi_Dev("Main");</script>
+<script>LHBBuildOutline()</script>
 </html>

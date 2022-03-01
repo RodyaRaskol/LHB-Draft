@@ -5,55 +5,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Index</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
-        <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="glocolors.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="code.js"></script>
         <script src="glomenus.js"></script>
+        <script src="database.js"></script>
+        <script src="xltechs.js"></script>
     
     </head>
-    <body>
-        <nav id="nav-Main" class="w3-bar" >
-            <!--Filled by Script-->
-          </nav>
-          <nav id="nav-Mini" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium">
-            <!--Filled by Script-->
-          </nav>
-          <script>lhbBuildMenus("menuTest");</script>
-        <div class="w3-container">
-             
-
-             <div class="w3-row-padding">
-                <div id="homepics" class="w3-col m3 l4">  
-                    <div class="portfolio-item-wrapper">
-                        <div class="portfolio-img-background" style="background-image:url(images/jonathan-letniak-3Z2Yx0E1DXw-unsplash.jpg)"> </div>
-                        <div class="img-text-wrapper">
-                            <div class="subtitle">Image 1 Mountains</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper">
-                        <div class="portfolio-img-background" style="background-image:url(images/swapnil-shetty-7tH1lvMzxs8-unsplash.jpg)"> </div>
-                        <div class="img-text-wrapper">
-                            <div class="subtitle">Image 2 Forests</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <body>  <div id="LHBArea" class="w3-hide">areaHome</div>
+        <div id="LHBStore" class="w3-hide">storeLHBHome</div>
+        <div id="nav-Main" class="w3-bar w3-hide-smallmedium LHBMainNav" ></div>
+        <div id="storeBanner-main" class="w3-container LHBFontSizeBanner">
+          <button id="smToggleBtn" type="button" class="w3-border-0 w3-hide-large" onclick='LHB_Curtain("LHBMainNav", "w3-hide-smallmedium")'>&#9776</button>
+          <span>Life Hacks Bazaar</span>
         </div>
+        <div id="departments-Main" class="w3-bar LHBDepartments LHBFontSize" ></div>
 </body>
-<script>
-    const portfolioItems=document.querySelectorAll('.portfolio-item-wrapper')
-
-    portfolioItems.forEach(portfolioItem =>{
-        portfolioItem.addEventListener('mouseover',()=>{
-            portfolioItem.childNodes[1].classList.add('img-darken');
-        })
-   
-        portfolioItem.addEventListener('mouseout',()=>{
-            portfolioItem.childNodes[1].classList.remove('img-darken');
-        })
-    })
-</script>
+<script>LHB_Build_Primary_Navi_Dev("Main");</script>
+<script>LHBBuildOutline()</script>
 </html>

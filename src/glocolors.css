@@ -1,28 +1,25 @@
 
-@media screen and (min-width: 992px) {
-    div.LHBFontSize {
-      font-size: 22px;
-    }
-  }
-  
+@media screen and (min-width: 992px) {div.LHBFontSize {font-size: 22px;}}
+@media screen and (max-width: 992px) {div.LHBFontSize{font-size: 12px; padding: 2px;}}
+@media screen and (min-width: 992px) {div.LHBFontSizeMethods{font-size: 15px;}}
+@media screen and (max-width: 992px) {div.LHBFontSizeMethods{font-size: 10px;}}
+@media screen and (min-width: 992px) {div.LHBFontSizeBanner{font-size:30px;}}
+@media screen and (max-width: 992px) {.w3-hide-smallmedium{display:none!important}}
+@media screen and (min-width: 992px) {.w3-show-LHBLarge{display:block!important}}
+@media screen and (max-width: 992px) {.w3-show-LHBLarge{display:none!important}}
 
-  @media screen and (max-width: 992px) {
-    div.LHBFontSize{
-      font-size: 12px;
-    }
+/* FAO BI*/
+iframe {
+    box-sizing: border-box;   /* make the border size be included in the height */
+    display: block;           /* make them block to fix white space margin */
+    position:relative;
+    align-content: center;
+    align-self: center;
+  
+    width:100%;
+    height:900px;
   }
 
-  @media screen and (min-width: 992px) {
-    div.LHBFontSizeMethods{
-      font-size: 15px;
-    }
-  }
-  @media screen and (max-width: 992px) {
-    div.LHBFontSizeMethods{
-      font-size: 10px;
-    }
-  }
-  
 
 /*Windows Metro UI*/
 .w3-metro-light-green

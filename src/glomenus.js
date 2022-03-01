@@ -41,10 +41,10 @@ const iconDropDown="   &#8615";
 const LHBAreasObj=[    
 {idArea:idxAreaHome, name:"Home",IsActive:true,LHBAreaColor:"w3-2021-buttercream"},
 {idArea:idxAreaExcel, name:"Excel",IsActive:true,LHBAreaColor:"w3-metro-dark-green"},   
-{idArea:idxAreaKnowl, name:"Knowledge",IsActive:true,LHBAreaColor:"w3-2021-amethyst-orchid"},
-{idArea:idxAreaFood, name:"Food",IsActive:true,LHBAreaColor:"w3-food-olive"},
+{idArea:idxAreaKnowl, name:"Knowledge",IsActive:true,LHBAreaColor:"w3-2021-french-blue"},
+{idArea:idxAreaFood, name:"Food",IsActive:false,LHBAreaColor:"w3-food-olive"},
 {idArea:idxAreaStalls, name:"Stalls",IsActive:true,LHBAreaColor:"w3-metro-dark-orange"},
-{idArea:idxAreaBench, name:"Bench",IsActive:true,LHBAreaColor:"w3-2021-french-blue"},
+{idArea:idxAreaBench, name:"Bench",IsActive:false,LHBAreaColor:"w3-2021-french-blue"},
 {idArea:idxAreaAbout, name:"About",IsActive:true,LHBAreaColor:"w3-metro-dark-purple"}]
 //Sub Menu Object
 const LHBStoresObj=[
@@ -52,9 +52,9 @@ const LHBStoresObj=[
 {idParent:idxAreaExcel,id:xlidHome,ref:"xlhome.html", name:"Excel Home",IsActive:true,title:"Excel Home",LHBStoreColor:null,IsAreaHome:true},
 {idParent:idxAreaExcel,id:xlidTechniques,ref:"xltechniques.html",name:"Techniques",IsActive:true,title:"Techniques",LHBStoreColor:null,IsAreaHome:false},
 {idParent:idxAreaExcel,id:xlidHowTo,ref:"xlhowto.html",name:"How to ...",IsActive:true,title:"How to ...",LHBStoreColor:null,IsAreaHome:false},
-{idParent:idxAreaExcel,id:xlidWhyDid,ref:"xlwhydid.html",name:"Why did ...",IsActive:true,title:"Why did ...",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidWhyDid,ref:"xlwhydid.html",name:"Why did ...",IsActive:false,title:"Why did ...",LHBStoreColor:null,IsAreaHome:false},
 {idParent:idxAreaExcel,id:xlidPowerPivot,ref:"xlpowerpivot.html",name:"Power Pivot",IsActive:true,title:"Power Pivot",LHBStoreColor:null,IsAreaHome:false},
-{idParent:idxAreaExcel,id:xlidEpics,ref:"xlepics.html",name:"Epics",IsActive:true,title:"Epics",LHBStoreColor:null,IsAreaHome:false},
+{idParent:idxAreaExcel,id:xlidEpics,ref:"xlepics.html",name:"Epics",IsActive:false,title:"Epics",LHBStoreColor:null,IsAreaHome:false},
 {idParent:idxAreaExcel,id:xlidToolShed,ref:"xltoolshed.html",name:"Tool Shed",IsActive:true,title:"Tool Shed",LHBStoreColor:null,IsAreaHome:false},
 {idParent:idxAreaKnowl,id:nlidKnowlHome,ref:"knowledge.html", name:"Knowledge",IsActive:true,title:"Knowledge Home",LHBStoreColor:null,IsAreaHome:true},
 {idParent:idxAreaFood,id:fdidFoodHome,ref:"food.html", name:"Food",IsActive:true,title:"Food Home",LHBStoreColor:null,IsAreaHome:true},
@@ -128,7 +128,19 @@ const menuTypesObj=[
     {idMenu:"Dept-Mini",IsMini:true,navRootID:"departments-Mini",dropdownMethod:idDropHover,menuGrp:"Dept",TopStyleBtn:styleDropDownButton,TopStyleLink:styleLinks},
     {idMenu:"Dept-Main",IsMini:false,navRootID:"departments-Main",dropdownMethod:idDropHover,menuGrp:"Dept",TopStyleBtn:styleDropDownButton,TopStyleLink:styleLinks}]
 
+
+
 function LHB_Build_Primary_Navi_Dev(navType){
+//Info on Caller Page
+//Get Doc Elements
+const docArea=document.getElementById("LHBArea").textContent    
+const docStore=document.getElementById("LHBStore").textContent
+const myArea=LHBAreasObj.filter(area=>area.idArea==docArea);
+const myStore=LHBStoresObj.filter(store=>store.id==docStore);
+const myAreaColor=myArea[0].LHBAreaColor;
+const btnNavMenutoggle=document.getElementById("smToggleBtn");
+btnNavMenutoggle.classList.add(myAreaColor);
+
 //Get Menu Template
     const navDefinition=menuTypesObj.filter(menu => menu.idMenu==navType)
     const IsMini=navDefinition[0].IsMini;
@@ -288,7 +300,7 @@ function LHBBuildOutline(){
     const navMenu=LHBAreasObj.filter(menu => menu.idArea==navID.textContent);
     const myColor=navMenu[0].LHBAreaColor;
     myMainBanner.className +=' '+myColor;
-    myMiniBanner.className +=' '+myColor;
+   // myMiniBanner.className +=' '+myColor;
 }
 function LHB_Build_Departments(navType){
 //Get Menu Template
@@ -357,8 +369,7 @@ function LHB_WireIn_Items(navType){
     const dropdownMethod=navDefinition[0].dropdownMethod;
     const menuGrp=navDefinition[0].menuGrp
 //Get Doc Elements
-    const docArea=document.getElementById("LHBArea").textContent
-    
+    const docArea=document.getElementById("LHBArea").textContent    
     const docStore=document.getElementById("LHBStore").textContent
 // Get Area and Store Objects
     const myArea=LHBAreasObj.filter(area=>area.idArea==docArea);

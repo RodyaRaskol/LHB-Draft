@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Excel Home</title> 
-  
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="glocolors.css">
-  <script src="glomenus.js"></script>
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Home</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="glocolors.css">
+    <script src="glomenus.js"></script>
+    <script src="database.js"></script>
+    <script src="xltechs.js"></script>
 </head>
 <body>
-  <!--Information for JS Builder  Verigy Correct Area and Store Name-->
-  <label id="LHBArea" class="w3-hide">areaExcel</label>
-  <label id="LHBStore" class="w3-hide">xlHome</label>  
-  <nav id="nav-Main" class="w3-bar w3-hide-small" >
-    <!--Filled by Script-->
-  </nav>
-  <nav id="nav-Area"class="w3-bar w3-hide-small"></nav>
-  <nav id="nav-Mini" class="w3-bar-block w3-hide-large w3-hide-medium">
-    <!--Filled by Script-->
-  </nav>
-  <script>LHBBuildNavi("Main");</script>
-  <script>LHBBuildNavi("Mini");</script>
+    <!--Information for JS Builder  Verify Correct Area and Store Name-->
+  <div id="LHBArea" class="w3-hide">areaExcel</div>
+  <div id="LHBStore" class="w3-hide">storexlHome</div>
+  <div id="nav-Main" class="w3-bar w3-hide-smallmedium LHBMainNav" ></div>
+  <div id="storeBanner-main" class="w3-container LHBFontSizeBanner">
+    <button id="smToggleBtn" type="button" class="w3-border-0 w3-hide-large" onclick='LHB_Curtain("LHBMainNav", "w3-hide-smallmedium")'>&#9776</button>
+    <span>Excel Home</span>
+  </div>
   
-  <header id="storeBanner-main" class="w3-container w3-hide-small">
-    <h1>Excel Home</h1>
-    <p>'"How we do it in the Pros"'</p>
-  </header>
-  <header id="storeBanner-mini" class="w3-hide-large w3-hide-medium">
-    <h6 >Excel Home</h6>
-  </header>
+
   <nav id="content-Main" class="w3-bar w3-hide-small" ></nav>
   <nav id="content-Mini" class="w3-bar-block w3-hide-large w3-hide-medium" ></nav>
   <script>LHBBuildOutline()</script>
@@ -41,7 +30,7 @@
         <div class="content-wrapper">
 
               <div class="w3-quarter">
-                  <h2>Content goes here</h2>
+                  <h2>Placeholder</h2>
               </div>
               <div class="w3-threequarter">
               <div class="w3-row-padding">
@@ -58,7 +47,7 @@
                   <p>Methods for solving frequently encountered problems.</p>
                 </div>
               
-                <div class="w3-third">
+                <div class="w3-third w3-hide">
                 <a href="xlhowto.html"><h2>Why did ...</h2></a>
                   <p>A discussion space explaining the reasoning behind the approaches.</p>
                   <p>In Excel there usually are multiple ways to solve a problem, 
@@ -71,7 +60,7 @@
                         for detailed data analysis.  It has many levels some of which are easily accesible, others not so much without a guide.
                     </p>
                   </div>
-                  <div class="w3-third">
+                  <div class="w3-third w3-hide">
                     <a href="xlepics.html"><h2>Epics</h2></a>
                     <p>A chance to show off !</p>
                     <p>Using Excel as the base and drawing upon DAX, VBA, Python and others, 
@@ -88,5 +77,6 @@
         </div>
     </div>
 </body>
+<script>LHB_Build_Primary_Navi_Dev("Main");</script>
 
 </html>

@@ -28,6 +28,10 @@ const idxFncMatch=6
 const idxFncOffset=7
 const idxFncSumIfs=8
 const idxFncCountIfs=9
+const idxFncDate=10
+const idxFncYear=11
+const idxFncMonth=12
+const idxFncDay=13
 
 //Excel Procedures Index
 const idxProCreateTable=1;
@@ -53,15 +57,16 @@ const xlTechniquesItemsObj=[
     tecs:[],
     VideoName:"28 Numbers Later",
     Mission:"Methods for Listing a series of numbers.",
-    Details:[{Discussion:'There are a few methods to list a number series from the basic drag/fill, shown in the "Veteran" method,'},
-    {Discussion:' utlising the "Fill Series" procedure illustrated in the "Star Method".  "Star?" shows the most common'},
-    {Discussion:' error, which is not entering a starting value in the cell.  Excel functions best with a structure where a column is'},
-    {Discussion:' filled with the same "type of data" rather than having different formulas in different rows of the column.'},
-{Discussion:' However there may be occasions when a horizontal report is called for, especially in Financial Reports, and "Fill Series"'},
-{Discussion:' as shown in "Horizontal" can be used to fill in a row.\n'},
-{Discussion:'Modern verions of Excel contain additional formulas such as "Sequence" which can also generate series shown in "M365".'},
-{Discussion:' The "Superstar" tab creates a series and then turns it into a formula which can be converted into a Table.  As we do this'},
-{Discussion:' frequently we have created a tool which does most of the work.'}],
+    Details:[
+    {Discussion:'There are a few methods to list a number series from the basic drag/fill, shown in the "Veteran" method,'
+                +' utilising the "Fill Series" procedure illustrated in the "Star Method".'},
+    {Discussion:'"Star?" shows the most common error, which is not entering a starting value in the cell.'}, 
+    {Discussion:'Excel functions best with a structure where a column is filled with the same "type of data" rather than having different'
+                +' formulas in different rows of the column. However there may be occasions when a horizontal report is called for, especially in Financial Reports,'
+                +'Fill Series as shown in "Horizontal" can be used to fill in a row.'},
+    {Discussion:'Modern verions of Excel contain additional formulas such as "Sequence" which can also generate series shown in "M365".'},
+    {Discussion:' The "Superstar" tab creates a series and then turns it into a formula which can be converted into a Table.  As we do this'
+                +' frequently we have created a tool which does most of the work.'}],
     methods:[{acLevel:1,methName:"Veteran",videoSRC:"videos/SC01.mp4",methType:"Video"},
             {acLevel:1,methName:"Star",videoSRC:"videos/SC02.mp4",methType:"Video"},
             {acLevel:1,methName:"Star?",videoSRC:"videos/SC03.mp4",methType:"Video"},
@@ -83,13 +88,15 @@ const xlTechniquesItemsObj=[
    tecs:[],
    VideoName:"Not to be!",
 Mission:"Limit the values that can be entered into a cell",
-Details:[{Discussion:"Data Valiadation is used to control what values are allowed to be entered into a cell."},
-{Discussion: 'Using the settings in the Validation manager allows the limitations to be set.  It may be a case of setting a '},
-{Discussion: 'range, as demonstrated by "Number Range" or from a list of acceptable values shwon in "Text Range.'},
-{Discussion:'  Using a table as the reference allows the list to automatically expand as new enteries are added.'},
-{Discussion:"  It's not necessary to use a Name as a reference to the cells in the table in wks!a1:a10 form will also work,"},
-{Discussion:' but we find Named ranges are easier to work with.  It would be great if the Validation tool got a complete update'},
-{Discussion:', so that it could accept more advance formulas but we deal with what we have.'}],
+Details:[{
+    Discussion:'Data Validation is used to control what values are allowed to be entered into a cell.'
+            +'  Using the settings in the "Validation Manager" allows the limitations to be set.'},
+    {Discussion: 'It may be a case of setting a range of numbers, as demonstrated by "Number Range" or from a list of acceptable  text values shown in "Text Range.'}, 
+    {Discussion:`"Data Validation is a relatively old part of Excel and is unable to accept more advanced formulas or references to "Tables".`
+      +`  We often apply a "Name" to the desired area in a Table as it's easy to reference from the "Validation-Manager"`},
+    {Discussion:'Using a "Table" as the validation reference automatically adjusts the allowed values as new enteries are added.'},
+    {Discussion:`It's not necessary to use a Name as a reference to the cells in the table in "Sheet1!a1:ax" form will also work.`},    
+    {Discussion:'It would be great if the Validation tool got a complete update so that it could accept more advanced formulas but we deal with what we have.'}],
 methods:[{acLevel:1,methName:"Number Range",videoSRC:"videos/S1E2Sc1.mp4",methType:"Video"},
 {acLevel:1,methName:"Text Range",videoSRC:"videos/S1E2Sc2.mp4",methType:"Video"},
 {acLevel:1,methName:"Veteran",videoSRC:"videos/S1E2Sc3.mp4",methType:"Video"},
@@ -104,13 +111,14 @@ methods:[{acLevel:1,methName:"Number Range",videoSRC:"videos/S1E2Sc1.mp4",methTy
    Updates:"2022-02-22",
    Action:"InitTechnique",
    muType:muBtn,
-   IsActive:true,
+   IsActive:false,
    fncs:[idxFncOffset,idxFncMatch,idxFncCountIfs],
    pros:[idxProNameManager,idxProValidationManager,idxProCreateTable],
    tecs:[],
    VideoName:null,
 Mission:"Limit the values that can be entered into a cell",
-Details:[{Discussion:"To Follow"}],
+Details:[{Discussion:"To Follow"}]
+,
 methods:[{acLevel:1,methName:null,videoSRC:null}]},
    
    {itemName:"Monthly Series",
@@ -122,13 +130,24 @@ methods:[{acLevel:1,methName:null,videoSRC:null}]},
    Action:"InitTechnique",
    muType:muBtn,
    IsActive:true,
-   fncs:[idxFncEDATE,idxFncEOMONTH],
+   fncs:[idxFncEDATE,idxFncEOMONTH,idxFncDate,idxFncYear,idxFncMonth],
    pros:[],
    tecs:[idItemXLNumSeries],
-   VideoName:null,
+   VideoName:"...before the End of the Month",
 Mission:"How to determine a date [x] months before/after an Initial Date.",
-Details:[{Discussion:"To Follow"}],
-methods:[{acLevel:1,methName:null,videoSRC:null}]}
+Details:[{Discussion:"EDate will give the same day of the month which is specified months before/after the reference date."
++`  It is advisable to always increment by using the total months since the reference date rather than incrementing the prior month by 1.`
++`  This can lead to errors if dealing with dates at the end of the month. EDATE on 30 Jan 2022 goes to 28 Feb 2022 but EDATE on 28 Feb goes to the 28 March 2022.`},
+{Discussion:`EOMONTH returns the last day in the month the specified number of months after the reference date.  EOMONTH(dd-mmm-yyyy,0) gives the end of the current month, `
++`EOMONTH(dd-mmm-yyyy,1) is the end of month date of the following month and so on.  EOMONTH with a negative number counts backwards`},
+{Discussion: `"Date List" shows examples of calculating these dates`},
+{Discussion:`To get the first day in the month a longer methods is to use a combination of the DATE, YEAR and MONTH functions and Specify 1 as the Day.`
++`  Using Eomonth(dd-mmm-yyyy,-1)+1 will get to the same date.  These calculations are in "1st Day"`},
+{Discussion:`"60 Months shows a common scenario of starting to construct a 5 year monthly forecast.`}],
+methods:[{acLevel:1,methName:"Date List",videoSRC:"videos/VID_20220301_164935.mp4",methType:"Video"},
+{acLevel:1,methName:"1st Day",videoSRC:"videos/VID_20220301_165401.mp4",methType:"Video"},
+{acLevel:1,methName:"60 Months",videoSRC:"videos/VID_20220301_170536.mp4",methType:"Video"}]}
+
 ];//Close LHB Techniques
 
 
@@ -193,6 +212,26 @@ const xlFunctions=[
         name:"=OFFSET()",
         link:"https://support.microsoft.com/en-us/office/offset-function-c8de19ae-dd79-4b9b-a14e-b4d906d11b66",
         fnClass:"xlFunctions-Classic"},
+    {id:idxFncDate,
+            name:"=DATE()",
+            link:"https://support.microsoft.com/en-us/office/date-function-e36c0c8c-4104-49da-ab83-82328b832349",
+            fnClass:"xlFunctions-Classic",
+        desc:`=DATE() returns the date based upon inputting a value for Year, Month and Day.  =DATE(2022,3,1) gives the 1st of March.`},
+        {id:idxFncYear,
+            name:"=YEAR()",
+            link:"https://support.microsoft.com/en-us/office/year-function-c64f017a-1354-490d-981f-578e8ec8d3b9",
+            fnClass:"xlFunctions-Classic",
+        desc:`=YEAR() returns the year  of the referenced date.`},
+        {id:idxFncMonth,
+            name:"=MONTH()",
+            link:"https://support.microsoft.com/en-us/office/month-function-579a2881-199b-48b2-ab90-ddba0eba86e8",
+            fnClass:"xlFunctions-Classic",
+        desc:`=MONTH() returns the month number, from 1-12, of the referenced date.`},
+        {id:idxFncDay,
+            name:"=DAY()",
+            link:"https://support.microsoft.com/en-us/office/day-function-8a7d1cbb-6c7d-4ba1-8aea-25c134d03101",
+            fnClass:"xlFunctions-Classic",
+        desc:`=DAY() returns the day number, from 1-31, of the referenced date.`}
 ];//Close Excel Functions
 
 

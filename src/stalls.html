@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LHB Test Bench</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="glocolors.css">
-  <script src="glomenus.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stalls Home</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="glocolors.css">
+    <script src="glomenus.js"></script>
+    <script src="database.js"></script>
+    <script src="xltechs.js"></script>
 </head>
 <body>
+    <!--Information for JS Builder  Verify Correct Area and Store Name-->
+  <div id="LHBArea" class="w3-hide">areaStalls</div>
+  <div id="LHBStore" class="w3-hide">storeStallsHome</div>
+  <div id="nav-Main" class="w3-bar w3-hide-smallmedium LHBMainNav" ></div>
+  <div id="storeBanner-main" class="w3-container LHBFontSizeBanner">
+    <button id="smToggleBtn" type="button" class="w3-border-0 w3-hide-large" onclick='LHB_Curtain("LHBMainNav", "w3-hide-smallmedium")'>&#9776</button>
+    <span>Stalls</span>
+  </div>
   
-  <nav id="nav-Main" class="w3-bar" >
-    <!--Filled by Script-->
-  </nav>
-  <nav id="nav-Mini" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium">
-    <!--Filled by Script-->
-  </nav>
-  <script>lhbBuildMenus("menuTest");</script>
 
-<div class="w3-container">
-  <p>In the example, the navigation bar is replaced with a button (☰) in the top right corner when shown on tablets and mobile devices. When the button is clicked, the links in the bar will vertically stack.</p>
-  <p>Resize the screen to see the effect.</p>
-</div>
 
+
+    </div>
 </body>
+<script>LHB_Build_Primary_Navi_Dev("Main");</script>
+<script>LHBBuildOutline()</script>
+
 </html>

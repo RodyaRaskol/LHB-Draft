@@ -1,45 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Home</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="glocolors.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="glomenus.js"></script>
-    <script src="code.js"></script>
+    <script src="database.js"></script>
+    <script src="xltechs.js"></script>
 </head>
 <body>
-    <nav id="nav-Main" class="w3-bar" >
-        <!--Filled by Script-->
-      </nav>
-      <nav id="nav-Mini" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium">
-        <!--Filled by Script-->
-      </nav>
-      <script>lhbBuildMenus("menuTest");</script>
-    <div class="container">
+    <!--Information for JS Builder  Verify Correct Area and Store Name-->
+  <div id="LHBArea" class="w3-hide">areaAbout</div>
+  <div id="LHBStore" class="w3-hide">storeLHBAbout</div>
+  <div id="nav-Main" class="w3-bar w3-hide-smallmedium LHBMainNav" ></div>
+  <div id="storeBanner-main" class="w3-container LHBFontSizeBanner">
+    <button id="smToggleBtn" type="button" class="w3-border-0 w3-hide-large" onclick='LHB_Curtain("LHBMainNav", "w3-hide-smallmedium")'>&#9776</button>
+    <span>About Us</span>
+  </div>
 
 
+        
 
-        <div class="content-wrapper">
-            <div class="two-column-wrapper">
-                <div class="profile-image-wrapper">
-                    <img src="images/swapnil-shetty-7tH1lvMzxs8-unsplash.jpg" alt="">
-                </div>
-                <div class="profile-content-wrapper">
-                    <h1>About US</h1>
-                    <p>Para No 1</p>
-                    <p>Para No2</p>
-
-                </div>
-            </div>
-
-        </div>
     </div>
 </body>
+<script>LHB_Build_Primary_Navi_Dev("Main");</script>
+<script>LHBBuildOutline()</script>
 
 </html>
