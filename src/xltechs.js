@@ -131,7 +131,7 @@ function fillItems(menu){
         myBtn.innerHTML=myTechnique[0].itemName;
         myBtn.id='tecbtn'+myTechnique[0].id+menu.navType;
         myBtn.className="w3-bar-item w3-button w3-round-large "+myColor;
-        // myBtn.setAttribute("onclick", 'xlProcedureCall("'+myProcedure[0].id+'","'+myBtn.id+'","'+myColor+'");');
+        myBtn.setAttribute("onclick", 'xlTCHMsg("'+myTechnique[0].id+'");');
         myDiv.appendChild(myBtn);};
 
 //Build Method Bar
@@ -170,6 +170,16 @@ function fillItems(menu){
 function xlFNCDesc(myFNC){
     const myItem=xlFunctions.filter(item => item.id==myFNC);
     alert(myItem[0].desc);};
+function xlTCHMsg(myTCH){
+    const myItem=xlTechniquesItemsObj.filter(item=>item.id=myTCH);
+    const myDeptID=myItem[0].ParentID;
+    const myDept = LHBDepartmentsObj.filter(item=>item.id=myDeptID);
+    let message='Find details under:'+"\n";
+    message +='Department: '+myDept[0].name+"\n"
+    message +='Item: '+myItem[0].itemName+"\n"
+    alert(message);
+
+}
 
 function xlProcedureCall (idxProcedure,idCaller,callerColor) {   
     let myProcedure=xlProcedures.filter(pro => pro.id==idxProcedure);
