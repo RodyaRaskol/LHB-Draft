@@ -4,6 +4,8 @@
 @media screen and (min-width: 992px) {div.LHBFontSizeMethods{font-size: 15px;}}
 @media screen and (max-width: 992px) {div.LHBFontSizeMethods{font-size: 10px;}}
 @media screen and (min-width: 992px) {div.LHBFontSizeBanner{font-size:30px;}}
+@media screen and (min-width: 992px) {span.LHBFontSizeDepartments{font-size:20px;}}
+@media screen and (max-width: 992px) {span.LHBFontSizeDepartments{font-size:12px;}}
 @media screen and (max-width: 992px) {.w3-hide-smallmedium{display:none!important}}
 @media screen and (min-width: 992px) {.w3-show-LHBLarge{display:block!important}}
 @media screen and (max-width: 992px) {.w3-show-LHBLarge{display:none!important}}
@@ -28,6 +30,8 @@ iframe {
 {color:#fff;background-color:#00a300}
 .w3-metro-dark-green
 {color:#fff;background-color:#1e7145}
+.w3-metro-dark-green-border
+{color:#fff;border-bottom:#1e7145}
 .w3-metro-magenta
 {color:#fff;background-color:#ff0097}
 .w3-metro-light-purple
